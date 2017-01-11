@@ -40,20 +40,20 @@ $firstText = trim($firstText);
 switch ($firstText) {
     case "/start":
         $resultText = "Ciao sono CusenzBot!\n\n";
-		$resultText = "Questo bot é perfetto per tutti i cosentini (e non solo)\n\n";
-		$resultText .= "lista comandi per ogni categoria:\n\n";
+		$resultText .= "Questo bot é perfetto per tutti i cosentini (e non solo)\n\n";
+		$resultText .= "lista comandi per ogni categoria:\n";
 		$resultText .= "/testo\n";
 		$resultText .= "/foto\n";
 		sendMsg($chatId,$resultText);
 		exit;
 	case "/testo":
-		$resultText .= "1. Ciao\n";
+		$resultText  = "1. Ciao\n";
 		$resultText .= "2. Insulta {nome persona} - Es: Insulata Mario\n";
 		$resultText .= "3. Proverbio|Nonno\n";
 		sendMsg($chatId,$resultText);
         break;
 	case "/foto":
-		$resultText .= "1. Foto [al momento non disponibile]\n";
+		$resultText = "1. Foto [al momento non disponibile]\n";
 		sendMsg($chatId,$resultText);
         break;
 		/*
