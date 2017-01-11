@@ -50,6 +50,7 @@ switch ($firstText) {
 		$resultText  = "1. Ciao\n";
 		$resultText .= "2. Insulta {nome persona} - Es: Insulata Mario\n";
 		$resultText .= "3. Proverbio | Nonno\n";
+		$resultText .= "4. Poesia\n";
 		sendMsg($chatId,$resultText);
         break;
 	case "/foto":
