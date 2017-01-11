@@ -48,7 +48,7 @@ switch ($firstText) {
 		exit;
 	case "/testo":
 		$resultText  = "1. Ciao\n";
-		$resultText .= "2. Insulta {nome persona} - Es: Insulata Mario\n";
+		$resultText .= "2. Insulta {nome persona} - Es: Insulta Mario\n";
 		$resultText .= "3. Minaccia {nome persona} - Es: Minaccia Mario\n";
 		$resultText .= "4. Proverbio | Nonno\n";
 		$resultText .= "5. Poesia\n";
