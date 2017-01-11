@@ -7,6 +7,15 @@
     "E me a iddru!",
     "Ohi Cò"
   ],
+  "cusenzbot": [
+    "Dicia!",
+    "Chi bù!",
+    "Lassami stà",
+    "M'ha chiamatu?",
+    "Oh",
+    "Ohi Cò",
+	"Ohi Zi"
+  ]
   "insulta": [
     "Chi minchia %s",
     "I bbafanc\u00FA %s",
@@ -50,7 +59,7 @@
     "U chiuritu dù culu è chiù forti du tirrimutu",
     "Quann'è tiampu i caristia ogni bucu è galleria"
   ],
-  "poesia/poesie": [
+  "poesia/poesie/cusentinu": [
     "U Cusintinu \n\n U Cusentinu è nu cristianu stranu \n tena ra vucca granne eppuru parra chianu \n Dicia ri parole stritte dintr' i dienti \n si fida cchiù di strajni ca di parianti \n Si senta nu Rodolfu i numi Valentinu \n eppuru è assaj paisanu e pocu cittadinu. \n Si minta ra cravatta, aropera ru picu \n Ancora va trovannu u tesoro i Re Alaricu \n U juarnu va a ra scola a sira a Piazza Scura \n si jura sup'a mamma e ti duna ra fricatura. \n Si senta superiore ppi via i l'antichi avi \n Eppuru n' hannu scrittu ca sunnu muntanari. \n Però unn è correttu a nni parrà sgarbatu \n Picchi sù gent'i core e l'hannu dimostratu, \n È vero ca s'atteggia a dottu e malandrinu \n Però chi bella cosa...ad essa cusintinu!"
   ]
 }
