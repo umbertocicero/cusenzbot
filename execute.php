@@ -49,7 +49,7 @@ switch ($firstText) {
 	case "/testo":
 		$resultText  = "1. Ciao\n";
 		$resultText .= "2. Insulta {nome persona} - Es: Insulata Mario\n";
-		$resultText .= "3. Proverbio|Nonno\n";
+		$resultText .= "3. Proverbio | Nonno\n";
 		sendMsg($chatId,$resultText);
         break;
 	case "/foto":
