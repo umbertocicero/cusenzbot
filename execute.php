@@ -112,7 +112,7 @@ foreach ($json_a as $k => $v) {
 
 
 function sendMsg($c,$t) {
-	header("Content-Type: application/json");
+	header("Content-Type: application/json; charset: UTF-8");
 	$parameters = array('chat_id' => $c, "text" => $t);
 	$parameters["method"] = "sendMessage";
 	echo json_encode($parameters);
