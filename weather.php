@@ -30,20 +30,20 @@ function getWeather(){
 	$weather = (json_decode($jsonFile, true));
 	fclose($myfile);
 	if(isset($weather)) {		
-		$dt = $weather['dt'];
+		$lastTime = isset($weather['last_update']) ? $weather['last_update'] : 0;
 		
-		//$lastTime = gmdate("YmdH",$dt); 
-		$lastTime = gmdate("Y-m-d\TH:i:s\Z", $dt);
 		$today = gmdate("Y-m-d\TH:i:s\Z");
-		echo $dt;
+		echo $lastTime;
 		echo "    ";
 		echo $lastTime;
 		echo "    ";
 		echo $today;
-		$lastTime = gmdate("YmdH", $dt);
-		$today = gmdate("YmdH");
+		$today = gmdate("YmdH:00");
 		if($lastTime < $today || $weather['cod'] == 200){
-			$jsonFile = callWeather();
+			$jsonFile  = callWeather();
+			$weather = json_decode($jsonFile, true);
+			$weather['last_update'] = $today;
+			$jsonFile = json_encode($weather);
 			writeWeather($jsonFile);
 		}
 		
@@ -64,10 +64,10 @@ function getWeatherMsg(){
 		$dt = $weather['dt'];
 		
 		$datetime = new DateTime();
-		$datetime->setTimestamp ($dt);
+		$datetime->setTimestamp($dt);
 		$la_time = new DateTimeZone('Europe/Rome');
 		$datetime->setTimezone($la_time);
-		$j_time = $datetime->format('d-m-Y H:00');
+		$j_time = $datetime->format('d-m-Y H:i');
 		
 		//$j_time = date("d-m-Y H:00",$dt);
 		
