@@ -1,4 +1,4 @@
-<?php require 'weather.php';
+<?php require('weather.php');
 define("BOT_TOKEN", "326665840:AAGd8Y7ReODVEtKZ8DffNkwv0CvuWxLIcmE");
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
