@@ -40,12 +40,13 @@ $firstText = trim($firstText);
 switch ($firstText) {
     case "/start":
         $resultText = "Ciao sono CusenzBot!\n\n";
-		$resultText .= "Questo bot é perfetto per tutti i cosentini (e non solo) \uF43A \n";
+		$resultText .= "Questo bot é perfetto per tutti i cosentini (e non solo). \n";
 		$resultText .= "Ideale per dare un po di vita al vostro gruppo si amici su Telegram\n\n";
-		$resultText .= "lista comandi per ogni categoria:\n";
+		$resultText .= "Lista comandi per ogni categoria:\n";
 		$resultText .= "/testo\n";
 		$resultText .= "/meteo\n";
 		$resultText .= "/foto\n";
+		$resultText .= "\n";
 		sendMsg($chatId,$resultText);
 		exit;
 	case "/testo":
