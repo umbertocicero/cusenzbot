@@ -56,7 +56,7 @@ function getWeather($type){
 		}
 		
 	} else {
-		$jsonFile = callWeather($_url);	
+		$jsonFile = callWeather($url);	
 		$weather = json_decode($jsonFile, true);
 		if(isset($weather)) {
 			$weather['last_update'] = gmdate("YmdH00");
