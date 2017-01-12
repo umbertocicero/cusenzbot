@@ -77,11 +77,17 @@ function checkWeatherTime(){
 		//  echo fgets($myfile) . "<br>";
 		//}
 		$jsonFile = fread($myfile,filesize("weather.json"));
+		echo "LOCALE";
 		echo $jsonFile;
 		//echo fread($myfile,filesize("weather.json"));
+		fclose($myfile);
+	} else {
+		$jsonFile = getWeather();
 		
+		echo "REMOTE";
+		
+		writeWeather($jsonFile);
 	}
-	fclose($myfile);
 	
 	
 }
