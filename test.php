@@ -3,15 +3,16 @@
 echo getMeteo();
 
 function getMeteo() {
-	$BASE_URL = "http://query.yahooapis.com/v1/public/yql";
-    $yql_query = 'select item.condition from weather.forecast where woeid=714748 and u = "c"';
-    $yql_query_url = $BASE_URL . "?q=" . urlencode($yql_query) . "&format=json";
-    // Make call with cURL
-    $session = curl_init($yql_query_url);
-    curl_setopt($session, CURLOPT_RETURNTRANSFER,true);
-    $json = curl_exec($session);
-    // Convert JSON to PHP object
-    $phpObj =  json_decode($json);
+	header('Content-Type: text/plain; charset=utf-8;'); 
+	$file = file_get_contents("http://api.openweathermap.org/data/2.5/weather?id=2524907&appid=65afaf2b63bbcca892a620603b4bba7b&lang=it&units=metric");
+	$weather = json_decode($file);
+	
+	if(isset($weather['weather']) && isset($weather['main'])){
+		$description = $weather['weather'][0]['description'];
+		$temp = $weather['main'][0]['temp'];
+		echo $description;
+		echo $temp;
+	}
    // return $phpObj;
-	return $json;
+	return $file;
 }
