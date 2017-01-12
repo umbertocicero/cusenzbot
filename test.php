@@ -1,3 +1,3 @@
 <?php require('weather.php');
 
-echo getWeatherMsg();
+echo getWeatherToday();

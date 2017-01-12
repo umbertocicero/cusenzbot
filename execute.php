@@ -95,7 +95,7 @@ foreach ($json_a as $k => $v) {
 			$resultText = $t;
 			switch ($resultText) {
 				case "@meteo":
-					$resultText = getWeatherMsg();
+					$resultText = getWeatherToday();
 					break;
 				case "@foto":
 					sendPhoto($chatId,$t);
