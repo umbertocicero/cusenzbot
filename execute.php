@@ -94,8 +94,11 @@ foreach ($json_a as $k => $v) {
 			$resultText = $t;
 			switch ($resultText) {
 				case "@meteo":
-				$resultText = getWeatherMsg();
-				break;
+					$resultText = getWeatherMsg();
+					break;
+				case "@foto":
+					sendPhoto($chatId,$t);
+					exit;
 			}
 			
 			$resultText = str_replace("%s", $secondText, $t);
@@ -114,7 +117,7 @@ function sendMsg($c,$t) {
 	$parameters["method"] = "sendMessage";
 	echo json_encode($parameters);
 }
-function sendPhoto($c,$t) {
+function sendPhoto($c,$id) {
 	$botUrl = "https://api.telegram.org/bot" . BOT_TOKEN . "/sendPhoto";
     // change image name and path
 	$postFields = array('chat_id' => $c, 'photo' => new CURLFile(realpath("images/image.png")), 'caption' => $text);
