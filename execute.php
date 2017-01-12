@@ -43,6 +43,7 @@ switch ($firstText) {
 		$resultText .= "Questo bot é perfetto per tutti i cosentini (e non solo)\n\n";
 		$resultText .= "lista comandi per ogni categoria:\n";
 		$resultText .= "/testo\n";
+		$resultText .= "/meteo\n";
 		$resultText .= "/foto\n";
 		sendMsg($chatId,$resultText);
 		exit;
@@ -52,15 +53,14 @@ switch ($firstText) {
 		$resultText .= "3. Minaccia {nome persona} - Es: Minaccia Mario\n";
 		$resultText .= "4. Proverbio | Nonno\n";
 		$resultText .= "5. Poesia\n";
-		$resultText .= "6. Meteo\n";
 		sendMsg($chatId,$resultText);
         break;
 	case "/foto":
 		$resultText = "1. Foto [al momento non disponibile]\n";
 		sendMsg($chatId,$resultText);
         break;
-	case "meteo":
-		$resultText = getWeatherMsg();
+	case "/meteo":
+		$resultText = "1. Meteo\n";
 		sendMsg($chatId,$resultText);
         break;
 		/*
@@ -92,8 +92,13 @@ foreach ($json_a as $k => $v) {
 			}
 			
 			$resultText = $t;
+			switch ($resultText) {
+				case "@meteo":
+				$resultText = getWeatherMsg();
+				break;
+			}
+			
 			$resultText = str_replace("%s", $secondText, $t);
-			sendMsg($chatId, $resultText);
 			sendMsg($chatId, $resultText);
 			$found = true;
 			break;

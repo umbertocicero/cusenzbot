@@ -14,11 +14,6 @@ function callWeather() {
 	$result=curl_exec($ch);
 	// Closing
 	curl_close($ch);
-
-
-	echo "CALLLL";	
-
-	
 	return $result;
 }
 
