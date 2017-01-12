@@ -112,10 +112,10 @@ foreach ($json_a as $k => $v) {
 
 
 function sendMsg($c,$t) {
-	header("Content-Type: application/json; charset: UTF-8");
+	header("Content-Type: application/json");
 	$parameters = array('chat_id' => $c, "text" => $t);
 	$parameters["method"] = "sendMessage";
-	echo json_encode($parameters);
+	echo json_encode($parameters, JSON_UNESCAPED_UNICODE);
 }
 function sendPhoto($c,$id) {
 	$botUrl = "https://api.telegram.org/bot" . BOT_TOKEN . "/sendPhoto";
