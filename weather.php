@@ -102,6 +102,7 @@ function getWeatherWeek(){
 		
 		$list = $weather['list'][0];		
 		foreach ($list as $weatherValue){
+			$result .= $weatherValue;
 			$dt = $weatherValue['dt'];
 			$datetime = new DateTime();
 			$datetime->setTimestamp($dt);
