@@ -102,8 +102,9 @@ function getWeatherWeek(){
 		
 		$list = $weather['list'][0];
 		echo $list;
-		/*
+		
 		foreach ($list as $weatherValue){
+			/*
 			$dt = $weatherValue['dt'];
 			$datetime = new DateTime();
 			$datetime->setTimestamp($dt);
@@ -112,7 +113,7 @@ function getWeatherWeek(){
 			$j_time = $datetime->format('d-m-Y');
 			
 			$result .= "Girono ".$j_time." \n";
-			
+			*/
 			$temp = $weatherValue['temp']['day'];
 			$description = $weatherValue['weather'][0]['description'];
 			$humidity = $weatherValue['humidity'];
@@ -125,7 +126,7 @@ function getWeatherWeek(){
 			$result .= "\n"
 			
 		}	
-*/		
+	
 	}
 	return utf8_encode($result);		
 }
