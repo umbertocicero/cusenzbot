@@ -16,7 +16,7 @@ function callWeather() {
 	curl_close($ch);
 
 
-			
+	echo "CALLLL";	
 
 	
 	return $result;
@@ -36,11 +36,7 @@ function getWeather(){
 	fclose($myfile);
 	if(isset($weather)) {		
 		$lastTime = isset($weather['last_update']) ? $weather['last_update'] : 0;
-		
 		$today = gmdate("YmdH00");
-		echo $lastTime;
-		echo "    ";
-		echo $today;
 		
 		if($lastTime < $today || $weather['cod'] != 200){
 			$jsonFile  = callWeather();
@@ -76,8 +72,6 @@ function getWeatherMsg(){
 		$la_time = new DateTimeZone('Europe/Rome');
 		$datetime->setTimezone($la_time);
 		$j_time = $datetime->format('d-m-Y H:i');
-		
-		//$j_time = date("d-m-Y H:00",$dt);
 		
 		$name = $weather['name'];	
 		$wind = $weather['wind']['speed'];
