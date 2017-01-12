@@ -13,7 +13,12 @@ function callWeather() {
 	// Execute
 	$result=curl_exec($ch);
 	// Closing
-	curl_close($ch);	
+	curl_close($ch);
+
+
+			
+
+	
 	return $result;
 }
 
@@ -32,14 +37,14 @@ function getWeather(){
 	if(isset($weather)) {		
 		$lastTime = isset($weather['last_update']) ? $weather['last_update'] : 0;
 		
-		$today = gmdate("Y-m-d\TH:i:s\Z");
+		$today = gmdate("YmdH00");
 		echo $lastTime;
 		echo "    ";
 		echo $lastTime;
 		echo "    ";
 		echo $today;
-		$today = gmdate("YmdH:00");
-		if($lastTime < $today || $weather['cod'] == 200){
+		
+		if($lastTime < $today || $weather['cod'] != 200){
 			$jsonFile  = callWeather();
 			$weather = json_decode($jsonFile, true);
 			$weather['last_update'] = $today;
@@ -48,7 +53,12 @@ function getWeather(){
 		}
 		
 	} else {
-		$jsonFile = callWeather();		
+		$jsonFile = callWeather();	
+		$weather = json_decode($jsonFile, true);
+		if(isset($weather)) {
+			$weather['last_update'] = $today;
+			$jsonFile = json_encode($weather);
+		}
 		writeWeather($jsonFile);
 	}
 	return $jsonFile;
