@@ -33,6 +33,8 @@ function getWeather(){
 		$dt = $weather['dt'];
 		$lastTime = date("YmdH",$dt); 
 		$today = gmdate("YmdH");
+		echo $dt;
+		echo "    ";
 		echo $lastTime;
 		echo "    ";
 		echo $today;
