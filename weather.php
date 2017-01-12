@@ -101,6 +101,8 @@ function getWeatherWeek(){
 		$result  = "Meteo ".$name."\n\n";
 		
 		$list = $weather['list'][0];
+		echo $list;
+		/*
 		foreach ($list as $weatherValue){
 			$dt = $weatherValue['dt'];
 			$datetime = new DateTime();
@@ -122,7 +124,8 @@ function getWeatherWeek(){
 			
 			$result .= "\n"
 			
-		}		
+		}	
+*/		
 	}
 	return utf8_encode($result);		
 }
