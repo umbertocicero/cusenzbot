@@ -97,11 +97,7 @@ function getWeatherWeek(){
 	$weather = json_decode(getWeather("week"), true);
 	$result = "Meteo momentaneamente non disponibile";
 	if(isset($weather['weather']) && isset($weather['main']) && $weather['cod'] == 200){
-		
-		
-		$humidity = $weather['main']['humidity'];
-		
-		
+				
 		$name = $weather['city']['name'];	
 		$result  = "Meteo ".$name."\n\n";
 		
