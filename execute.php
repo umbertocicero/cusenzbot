@@ -70,7 +70,7 @@ switch ($firstText) {
 		sendMsg($chatId,$resultText);
         break;
 	case "/meteo_settimana":
-		$resultText = getWeatherToday();
+		$resultText = getWeatherWeek();
 		sendMsg($chatId,$resultText);
         break;
 		/*
@@ -109,8 +109,21 @@ foreach ($json_a as $k => $v) {
 				case "@weatherWeek":
 					$resultText = getWeatherWeek();
 					break;
-				case "@foto":
-					sendPhoto($chatId,$t);
+				case "@photo":
+				
+					$pictures_a = json_decode(file_get_contents(realpath("pictures.json")), true);
+					foreach ($pictures_a as $k => $v) {	
+						if($resultText==$k){
+							if(is_array($v)) {
+							   $random = rand(0, count($v)-1);
+							   $picture = $v[$random]; 
+							} else {
+							   $picture = $v;
+							}
+							sendPhoto($chatId,$picture);
+							exit;
+						}
+					}
 					exit;
 			}
 			
@@ -133,7 +146,7 @@ function sendMsg($c,$t) {
 function sendPhoto($c,$id) {
 	$botUrl = "https://api.telegram.org/bot" . BOT_TOKEN . "/sendPhoto";
     // change image name and path
-	$postFields = array('chat_id' => $c, 'photo' => new CURLFile(realpath("images/image.png")), 'caption' => $text);
+	$postFields = array('chat_id' => $c, 'photo' => new CURLFile(realpath("images/".$id)), 'caption' => $text);
 	$ch = curl_init(); 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type:multipart/form-data"));
 	curl_setopt($ch, CURLOPT_URL, $botUrl); 
