@@ -1,8 +1,5 @@
 <?php 
 
-$urlWeek = "http://api.openweathermap.org/data/2.5/forecast/daily?id=2524907&appid=65afaf2b63bbcca892a620603b4bba7b&lang=it&units=metric";
-$urlToday = "http://api.openweathermap.org/data/2.5/weather?id=2524907&appid=65afaf2b63bbcca892a620603b4bba7b&lang=it&units=metric";
-
 function callWeather($url) {
 	//  Initiate curl
 	$ch = curl_init();
@@ -32,9 +29,11 @@ function getWeather($type){
 	switch ($type) {
     case "today":
         $file_name = "weather_today.json";
+		$url = "http://api.openweathermap.org/data/2.5/weather?id=2524907&appid=65afaf2b63bbcca892a620603b4bba7b&lang=it&units=metric";
 		break;
 	case "week":
 		 $file_name = "weather_week.json";
+		 $url = "http://api.openweathermap.org/data/2.5/forecast/daily?id=2524907&appid=65afaf2b63bbcca892a620603b4bba7b&lang=it&units=metric";
         break;
 	}
 	$myfile = fopen($file_name, "r");
@@ -54,7 +53,7 @@ function getWeather($type){
 		}
 		
 	} else {
-		$jsonFile = callWeather($url);	
+		$jsonFile = callWeather($_url);	
 		$weather = json_decode($jsonFile, true);
 		if(isset($weather)) {
 			$weather['last_update'] = gmdate("YmdH00");
@@ -66,7 +65,34 @@ function getWeather($type){
 }
 
 function getWeatherToday(){	
-	$weather = (json_decode(getWeather("today"), true));
+	$weather = json_decode(getWeather("today"), true);
+	$result = "Meteo momentaneamente non disponibile";
+	if(isset($weather['weather']) && isset($weather['main']) && $weather['cod'] == 200){
+		$description = $weather['weather'][0]['description'];
+		$temp = $weather['main']['temp'];
+		$humidity = $weather['main']['humidity'];
+		$dt = $weather['dt'];
+		
+		$datetime = new DateTime();
+		$datetime->setTimestamp($dt);
+		$la_time = new DateTimeZone('Europe/Rome');
+		$datetime->setTimezone($la_time);
+		$j_time = $datetime->format('d-m-Y H:i');
+		
+		$name = $weather['name'];	
+		$wind = $weather['wind']['speed'];
+		$result  = "Meteo ".$name."\n\n";
+		//$result .= "Aggiornato alle ".$j_time." \n\n";
+		$result .= "Temperatura ".$temp."° \n";
+		$result .= ucfirst($description)." \n";
+		$result .= "Vento ".$wind." Km/h \n";
+		$result .= "Umidità ".$humidity."% \n";
+	}
+	$encoded = utf8_encode($result);
+	return $encoded;	
+}
+function getWeatherWeek(){	
+	$weather = json_decode(getWeather("week"), true);
 	$result = "Meteo momentaneamente non disponibile";
 	if(isset($weather['weather']) && isset($weather['main']) && $weather['cod'] == 200){
 		$description = $weather['weather'][0]['description'];
