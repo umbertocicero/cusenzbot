@@ -1,4 +1,4 @@
-<?php require('weather.php');
+<?php //require('weather.php');
 define("BOT_TOKEN", "326665840:AAGd8Y7ReODVEtKZ8DffNkwv0CvuWxLIcmE");
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
@@ -121,66 +121,6 @@ function sendPhoto($c,$t) {
 	// read curl response
 	$output = curl_exec($ch);
 }
-
-
-
-function getWeather() {
-	/*
-	$BASE_URL = "http://query.yahooapis.com/v1/public/yql";
-    $yql_query = 'select item.condition from weather.forecast where woeid=714748 and u = "c"';
-    $yql_query_url = $BASE_URL . "?q=" . urlencode($yql_query) . "&format=json";
-    // Make call with cURL
-    $session = curl_init($yql_query_url);
-    curl_setopt($session, CURLOPT_RETURNTRANSFER,true);
-    $json = curl_exec($session);
-    // Convert JSON to PHP object
-    $phpObj =  json_decode($json);
-   // return $phpObj;
-	return $json;
-	
-	*/
-	//PREVISIONI GIORNATA
-	//http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&lang=it&appid=65afaf2b63bbcca892a620603b4bba7b
-	
-	
-	/*
-	header('Content-Type: text/plain; charset=utf-8;'); 
-	$file = file_get_contents("http://api.openweathermap.org/data/2.5/weather?id=2524907&appid=65afaf2b63bbcca892a620603b4bba7b&lang=it&units=metric");
-	$weather = json_decode($file);
-	*/
-	
-	$url = "http://api.openweathermap.org/data/2.5/weather?id=2524907&appid=65afaf2b63bbcca892a620603b4bba7b&lang=it&units=metric";
-	//  Initiate curl
-	$ch = curl_init();
-	// Disable SSL verification
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-	// Will return the response, if false it print the response
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	// Set the url
-	curl_setopt($ch, CURLOPT_URL,$url);
-	// Execute
-	$result=curl_exec($ch);
-	// Closing
-	curl_close($ch);
-
-	// Will dump a beauty json :3
-	$weather = (json_decode($result, true));
-	
-	
-	
-	if(isset($weather['weather']) && isset($weather['main'])){
-		$description = $weather['weather'][0]['description'];
-		$temp = $weather['main'][0]['temp'];
-		echo $description;
-		echo $temp;
-	}
-	
-	return $result;
-
-
-//print_r(json_decode($file));
-}
-
 
 
 
