@@ -102,7 +102,6 @@ function getWeatherWeek(){
 		
 		$list = $weather['list'];		
 		foreach ($list as $weatherValue){
-			$result .= $weatherValue;
 			$dt = $weatherValue['dt'];
 			$datetime = new DateTime();
 			$datetime->setTimestamp($dt);
@@ -114,12 +113,9 @@ function getWeatherWeek(){
 			
 			$temp = $weatherValue['temp']['day'];
 			$description = $weatherValue['weather'][0]['description'];
-			$humidity = $weatherValue['humidity'];
-			$wind = $weather['speed'];
 			
 			$result .= "Temperatura ".$temp."° \n";
 			$result .= ucfirst($description)." \n";
-			$result .= "Umidità ".$humidity."% \n";
 			$result .= "\n";
 			
 		}

@@ -61,8 +61,16 @@ switch ($firstText) {
 		sendMsg($chatId,$resultText);
         break;
 	case "/meteo":
-		$resultText  = "1. Meteo\n";
-		$resultText .= "2. Meteo settimana\n";
+		$resultText  = "1. /meteo_oggi\n";
+		$resultText .= "2. /meteo_settimana\n";
+		sendMsg($chatId,$resultText);
+        break;
+	case "/meteo_oggi":
+		$resultText = getWeatherToday();
+		sendMsg($chatId,$resultText);
+        break;
+	case "/meteo_settimana":
+		$resultText = getWeatherToday();
 		sendMsg($chatId,$resultText);
         break;
 		/*
