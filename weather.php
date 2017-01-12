@@ -75,7 +75,7 @@ function getWeatherMsg(){
 		$result .= "Temperatura ".$temp."\u{00B0} \n";
 		$result .= ucfirst($description)." \n";
 		$result .= "Vento ".$wind." Km/h \n";
-		$result .= "Umidit\u00E0 \U00E0".$humidity."% \n";
+		$result .= "Umidit\u00E0 \U00E0 Umidità ".$humidity."% \n";
 	}
 	$encoded = json_encode($result, JSON_UNESCAPED_UNICODE);
 	$decoded = json_decode($encoded, true);
