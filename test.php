@@ -73,8 +73,9 @@ function writeWeather($jsonFile){
 function checkWeatherTime(){	
 	$myfile = fopen("weather.json", "r");
 	$jsonFile = fread($myfile,filesize("weather.json"));
+	$weather = (json_decode($json, true));
 	fclose($myfile);
-	if(isset($jsonFile)) {
+	if(isset($weather)) {
 		//while(!feof($myfile)) {
 		//  echo fgets($myfile) . "<br>";
 		//}
