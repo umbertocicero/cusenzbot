@@ -60,8 +60,7 @@ switch ($firstText) {
 		sendMsg($chatId,$resultText);
         break;
 	case "meteo":
-		//$resultText = getWeatherMsg();
-		$resultText = "AAAAAAAAAAAAAAAA\n";
+		$resultText = getWeatherMsg();
 		sendMsg($chatId,$resultText);
         break;
 		/*
