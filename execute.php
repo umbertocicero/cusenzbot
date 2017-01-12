@@ -58,6 +58,10 @@ switch ($firstText) {
 		$resultText = "1. Foto [al momento non disponibile]\n";
 		sendMsg($chatId,$resultText);
         break;
+	case "meteo":
+		$resultText = getMeteo();
+		sendMsg($chatId,$resultText);
+        break;
 		/*
     case "/foto":
 		sendPhoto($chatId,$text);
@@ -113,6 +117,21 @@ function sendPhoto($c,$t) {
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
 	// read curl response
 	$output = curl_exec($ch);
+}
+
+
+
+function getMeteo() {
+	$BASE_URL = "http://query.yahooapis.com/v1/public/yql";
+    $yql_query = 'select item.condition from weather.forecast where woeid=714748 and u = "c"';
+    $yql_query_url = $BASE_URL . "?q=" . urlencode($yql_query) . "&format=json";
+    // Make call with cURL
+    $session = curl_init($yql_query_url);
+    curl_setopt($session, CURLOPT_RETURNTRANSFER,true);
+    $json = curl_exec($session);
+    // Convert JSON to PHP object
+    $phpObj =  json_decode($json);
+    return ($phpObj);
 }
 
 
