@@ -100,7 +100,7 @@ function getWeatherWeek(){
 		$name = $weather['city']['name'];	
 		$result  = "Meteo ".$name."\n\n";
 		
-		$list = $weather['list'];
+		$list = $weather['list'][0];
 		foreach ($list as $weatherValue){
 			$dt = $weatherValue['dt'];
 			$datetime = new DateTime();
@@ -108,7 +108,7 @@ function getWeatherWeek(){
 			$la_time = new DateTimeZone('Europe/Rome');
 			$datetime->setTimezone($la_time);
 			$j_time = $datetime->format('d-m-Y');
-			/*
+			
 			$result .= "Girono ".$j_time." \n";
 			
 			$temp = $weatherValue['temp']['day'];
@@ -119,7 +119,7 @@ function getWeatherWeek(){
 			$result .= "Temperatura ".$temp."° \n";
 			$result .= ucfirst($description)." \n";
 			$result .= "Umidità ".$humidity."% \n";
-			*/
+			
 			$result .= "\n"
 			
 		}		
