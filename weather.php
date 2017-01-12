@@ -33,6 +33,9 @@ function getWeather(){
 		$dt = $weather['dt'];
 		$lastTime = date("YmdH",$dt); 
 		$today = date("YmdH");
+		echo $lastTime;
+		echo "    ";
+		echo $today;
 		if($lastTime < $today || $weather['cod'] == 200){
 			$jsonFile = callWeather();
 			writeWeather($jsonFile);
