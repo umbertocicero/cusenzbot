@@ -77,7 +77,6 @@ function getWeatherMsg(){
 		$result .= "Vento ".$wind." Km/h \n";
 		$result .= "Umidit\u00E0 \U00E0 Umidità ".$humidity."% \n";
 	}
-	$encoded = json_encode($result, JSON_UNESCAPED_UNICODE);
-	$decoded = json_decode($encoded, true);
-	return $decoded;	
+	$encoded = utf8_encode($result);
+	return $encoded;	
 }
