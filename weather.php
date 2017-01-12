@@ -78,6 +78,6 @@ function getWeatherMsg(){
 		$result .= "Umidit\u00E0 \U00E0".$humidity."% \n";
 	}
 	$encoded = json_encode($result, JSON_UNESCAPED_UNICODE);
-	$decoded = json_encode($encoded, true);
+	$decoded = json_decode($encoded, true);
 	return $decoded;	
 }
