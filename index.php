@@ -13,7 +13,7 @@
   <li>/meteo</li>
 </ul>
  <br />
- <p>Ideale in un gruppo di amici</p>
+ <p>Ideale per dare un po di vita al vostro gruppo si amici su Telegram</p>
 <?php
 echo "-----";
 ?> 
