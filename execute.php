@@ -79,18 +79,20 @@ $found = false;
 foreach ($json_a as $k => $v) {	
 	if($found) break;
 		
-	if(is_array($v)) {
-	   $random = rand(0, count($v)-1);
-       $t = $v[$random]; 
-    } else {
-       $t = $v;
-    }
-	
 	$keySplit = explode("/", $k);	
 	foreach ($keySplit as $value) {	
 		if($value == $firstText){
+			
+			if(is_array($v)) {
+			   $random = rand(0, count($v)-1);
+			   $t = $v[$random]; 
+			} else {
+			   $t = $v;
+			}
+			
 			$resultText = $t;
 			$resultText = str_replace("%s", $secondText, $t);
+			sendMsg($chatId, $resultText);
 			sendMsg($chatId, $resultText);
 			$found = true;
 			break;
