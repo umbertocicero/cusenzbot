@@ -53,7 +53,15 @@ function getWeatherMsg(){
 		$temp = $weather['main']['temp'];
 		$humidity = $weather['main']['humidity'];
 		$dt = $weather['dt'];
-		$j_time = date("d-m-Y H:00",$dt);
+		
+		$datetime = new DateTime();
+		$datetime->setTimestamp ($dt)
+		$la_time = new DateTimeZone('Europe/Rome');
+		$datetime->setTimezone($la_time);
+		$j_time = $datetime->format('d-m-Y H:00');
+		
+		//$j_time = date("d-m-Y H:00",$dt);
+		
 		$name = $weather['name'];	
 		$wind = $weather['wind']['speed'];
 		$result  = "Meteo di ".$name."\n";
