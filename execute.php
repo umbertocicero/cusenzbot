@@ -124,6 +124,7 @@ function sendPhoto($c,$t) {
 
 
 function getMeteo() {
+	/*
 	$BASE_URL = "http://query.yahooapis.com/v1/public/yql";
     $yql_query = 'select item.condition from weather.forecast where woeid=714748 and u = "c"';
     $yql_query_url = $BASE_URL . "?q=" . urlencode($yql_query) . "&format=json";
@@ -135,6 +136,11 @@ function getMeteo() {
     $phpObj =  json_decode($json);
    // return $phpObj;
 	return $json;
+	*/
+	header('Content-Type: text/plain; charset=utf-8;'); 
+$file = file_get_contents("http://weathers.co/api.php?city=Cosenza");
+return $file;
+//print_r(json_decode($file));
 }
 
 
