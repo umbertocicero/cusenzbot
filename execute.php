@@ -101,7 +101,7 @@ foreach ($json_a as $k => $v) {
 					exit;
 			}
 			
-			$resultText = str_replace("%s", $secondText, $t);
+			$resultText = str_replace("%s", $secondText, $resultText);
 			sendMsg($chatId, $resultText);
 			$found = true;
 			break;
