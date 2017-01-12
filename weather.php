@@ -31,7 +31,7 @@ function getWeather(){
 	fclose($myfile);
 	if(isset($weather)) {		
 		$dt = $weather['dt'];
-		$lastTime = date("YmdH",$dt); 
+		$lastTime = gmdate("YmdH",$dt); 
 		$today = gmdate("YmdH");
 		echo $dt;
 		echo "    ";
