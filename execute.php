@@ -131,7 +131,8 @@ function getMeteo() {
     $json = curl_exec($session);
     // Convert JSON to PHP object
     $phpObj =  json_decode($json);
-    return ($phpObj);
+   // return $phpObj;
+	return $json;
 }
 
 
