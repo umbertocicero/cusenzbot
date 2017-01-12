@@ -24,38 +24,64 @@ function getWeather() {
 	curl_close($ch);
 
 	// Will dump a beauty json :3
+	//$weather = readWeather($result);
 	$weather = (json_decode($result, true));
-	
-	
-	
 	if(isset($weather['weather']) && isset($weather['main'])){
 		$description = $weather['weather'][0]['description'];
 		$temp = $weather['main']['temp'];
 		$dt = $weather['dt'];
-		echo $description;
-		echo $temp;
-		echo $dt;
+		$j_time = date("Ymd",$dt); 
+		//$result = $description." - ".$temp." - ".$temp." - ".$j_time;
+		
+		//echo $temp;
+		//echo $dt;
 		
 		
-		$j_time = date("Ymd",$dt);                           // 20010310
-		echo 'j_time:       '. $j_time ."\n";
+		                          // 20010310
+		//echo 'j_time:       '. $j_time ."\n";
 	}
+	
 	
 	return $result;
 }
 
-function checkWeatherTime(){
-	$myfile = fopen("weather.json", "w") or die("Unable to open file!");
-	$txt = "John Doe\n";
+function readWeather($json){
+	$weather = (json_decode($json, true));
+	if(isset($weather['weather']) && isset($weather['main'])){
+		$description = $weather['weather'][0]['description'];
+		$temp = $weather['main']['temp'];
+		$dt = $weather['dt'];
+		$j_time = date("Ymd",$dt); 
+		//$result = $description." - ".$temp." - ".$temp." - ".$j_time;
+		
+		//echo $temp;
+		//echo $dt;
+		
+		
+		                          // 20010310
+		//echo 'j_time:       '. $j_time ."\n";
+	}
+	return $weather;
+}
+function writeWeather($jsonFile){
+	$myfile = fopen("weather.json", "w");
+	$txt = $jsonFile;
 	fwrite($myfile, $txt);
-	$txt = "Jane Doe\n";
-	fwrite($myfile, $txt);
+	fclose($myfile);	
+}
+
+function checkWeatherTime(){	
+	$myfile = fopen("weather.json", "r");
+	if(isset($myfile)) {
+		//while(!feof($myfile)) {
+		//  echo fgets($myfile) . "<br>";
+		//}
+		$jsonFile = fread($myfile,filesize("weather.json"));
+		echo $jsonFile;
+		//echo fread($myfile,filesize("weather.json"));
+		
+	}
 	fclose($myfile);
 	
-	
-	
-	$myfile = fopen("weather.json", "r") or die("Unable to open file!");
-	echo fread($myfile,filesize("weather.json"));
-	fclose($myfile);
 	
 }
