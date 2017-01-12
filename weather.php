@@ -63,7 +63,7 @@ function getWeather($type){
 		}
 		writeWeather($jsonFile, $file_name);
 	}
-	echo $jsonFile;
+	
 	return $jsonFile;
 }
 
@@ -97,7 +97,8 @@ function getWeatherWeek(){
 	$weather = json_decode(getWeather("week"), true);
 	$result = "Meteo momentaneamente non disponibile";
 	if(isset($weather['city']) && isset($weather['list']) && $weather['cod'] == 200){
-		$result = $weather;
+		$name = $weather['city']['name'];	
+		$result  = "Meteo ".$name."\n\n";
 	}
 	return utf8_encode($result);	
 }
