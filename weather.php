@@ -75,7 +75,7 @@ function getWeatherMsg(){
 		$result .= "Temperatura ".$temp."\u{02DA} \n";
 		$result .= ucfirst($description)." \n";
 		$result .= "Vento ".$wind." Km/h \n";
-		$result .= "Umidit\u{00E0} ".$humidity."% \n";
+		$result .= "Umidità ".$humidity."% \n";
 	}
 	return $result;	
 }
