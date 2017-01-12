@@ -1,8 +1,14 @@
-<?php echo "test";
+<?php echo "test/n";
 
 echo getMeteo();
 
 function getMeteo() {
+	
+	$today = date("Ymd");                           // 20010310
+	echo 'Now:       '. $today ."\n";
+	
+	
+	
 	$url = "http://api.openweathermap.org/data/2.5/weather?id=2524907&appid=65afaf2b63bbcca892a620603b4bba7b&lang=it&units=metric";
 	//  Initiate curl
 	$ch = curl_init();
@@ -24,9 +30,15 @@ function getMeteo() {
 	
 	if(isset($weather['weather']) && isset($weather['main'])){
 		$description = $weather['weather'][0]['description'];
-		$temp = $weather['main'][0]['temp'];
+		$temp = $weather['main']['temp'];
+		$dt = $weather['dt'];
 		echo $description;
 		echo $temp;
+		echo $dt;
+		
+		
+		$j_time = date("Ymd",$dt);                           // 20010310
+		echo 'j_time:       '. $j_time ."\n";
 	}
 	
 	return $result;
