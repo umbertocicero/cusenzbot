@@ -57,7 +57,7 @@ switch ($firstText) {
 		sendMsg($chatId,$resultText);
         break;
 	case "/foto":
-		$resultText = "1. Foto [al momento non disponibile]\n";
+		$resultText = "1. Foto | Immagine\n";
 		sendMsg($chatId,$resultText);
         break;
 	case "/meteo":
