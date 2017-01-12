@@ -99,6 +99,28 @@ function getWeatherWeek(){
 	if(isset($weather['city']) && isset($weather['list']) && $weather['cod'] == 200){
 		$name = $weather['city']['name'];	
 		$result  = "Meteo ".$name."\n\n";
+		$list = $weather['list'];
+		foreach ($list as $weatherValue){
+			$dt = $weatherValue['dt'];
+			$datetime = new DateTime();
+			$datetime->setTimestamp($dt);
+			$la_time = new DateTimeZone('Europe/Rome');
+			$datetime->setTimezone($la_time);
+			$j_time = $datetime->format('d-m-Y');
+			
+			$result .= "Girono ".$j_time." \n";
+			
+			$temp = $weatherValue['temp']['day'];
+			$description = $weatherValue['weather'][0]['description'];
+			$humidity = $weatherValue['humidity'];
+			$wind = $weather['speed'];
+			
+			$result .= "Temperatura ".$temp."° \n";
+			$result .= ucfirst($description)." \n";
+			$result .= "Umidità ".$humidity."% \n";
+			$result .= "\n"
+			
+		}		
 	}
-	return utf8_encode($result);	
+	return utf8_encode($result);		
 }
