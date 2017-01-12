@@ -59,7 +59,7 @@ switch ($firstText) {
 		sendMsg($chatId,$resultText);
         break;
 	case "meteo":
-		$resultText = getMeteo();
+		$resultText = getWeather();
 		sendMsg($chatId,$resultText);
         break;
 		/*
@@ -123,7 +123,7 @@ function sendPhoto($c,$t) {
 
 
 
-function getMeteo() {
+function getWeather() {
 	/*
 	$BASE_URL = "http://query.yahooapis.com/v1/public/yql";
     $yql_query = 'select item.condition from weather.forecast where woeid=714748 and u = "c"';

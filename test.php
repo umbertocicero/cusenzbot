@@ -1,8 +1,8 @@
 <?php echo "test/n";
 
-echo getMeteo();
+echo checkWeatherTime();
 
-function getMeteo() {
+function getWeather() {
 	
 	$today = date("Ymd");                           // 20010310
 	echo 'Now:       '. $today ."\n";
@@ -42,4 +42,20 @@ function getMeteo() {
 	}
 	
 	return $result;
+}
+
+function checkWeatherTime(){
+	$myfile = fopen("weather.json", "w") or die("Unable to open file!");
+	$txt = "John Doe\n";
+	fwrite($myfile, $txt);
+	$txt = "Jane Doe\n";
+	fwrite($myfile, $txt);
+	fclose($myfile);
+	
+	
+	
+	$myfile = fopen("weather.json", "r") or die("Unable to open file!");
+	echo fread($myfile,filesize("weather.json"));
+	fclose($myfile);
+	
 }
