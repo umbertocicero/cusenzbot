@@ -58,10 +58,10 @@ function getWeatherMsg(){
 		$wind = $weather['wind']['speed'];
 		$result  = "Meteo di ".$name."/n";
 		$result .= "Aggiornato alle ".$j_time." /n/n";
-		$result .= "Temperatura ".$temp."° /n";
+		$result .= "Temperatura ".$temp."\u02DA /n";
 		$result .= $description." /n";
 		$result .= "Vento ".$wind." Km/h /n";
-		$result .= "Umidità ".$humidity."% /n";
+		$result .= "Umidit\u00E0 ".$humidity."% /n";
 	}
 	return $result;	
 }
