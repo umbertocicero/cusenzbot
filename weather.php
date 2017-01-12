@@ -40,8 +40,6 @@ function getWeather(){
 		$today = gmdate("YmdH00");
 		echo $lastTime;
 		echo "    ";
-		echo $lastTime;
-		echo "    ";
 		echo $today;
 		
 		if($lastTime < $today || $weather['cod'] != 200){
@@ -56,7 +54,7 @@ function getWeather(){
 		$jsonFile = callWeather();	
 		$weather = json_decode($jsonFile, true);
 		if(isset($weather)) {
-			$weather['last_update'] = $today;
+			$weather['last_update'] = gmdate("YmdH00");
 			$jsonFile = json_encode($weather);
 		}
 		writeWeather($jsonFile);
