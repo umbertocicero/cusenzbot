@@ -95,5 +95,8 @@ function getWeatherToday(){
 function getWeatherWeek(){	
 	$weather = json_decode(getWeather("week"), true);
 	$result = "Meteo momentaneamente non disponibile";
+	if(isset($weather['city']) && isset($weather['list']) && $weather['cod'] == 200){
+		$result = $weather;
+	}
 	return utf8_encode($result);	
 }
