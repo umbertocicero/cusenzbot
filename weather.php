@@ -55,7 +55,7 @@ function getWeatherMsg(){
 		$dt = $weather['dt'];
 		
 		$datetime = new DateTime();
-		$datetime->setTimestamp ($dt)
+		$datetime->setTimestamp ($dt);
 		$la_time = new DateTimeZone('Europe/Rome');
 		$datetime->setTimezone($la_time);
 		$j_time = $datetime->format('d-m-Y H:00');
