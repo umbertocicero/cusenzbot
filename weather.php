@@ -13,6 +13,10 @@ function callWeather($url) {
 	$result=curl_exec($ch);
 	// Closing
 	curl_close($ch);
+	
+	
+	echo $url;
+	echo $result;
 	return $result;
 }
 
@@ -25,7 +29,6 @@ function writeWeather($jsonFile,$file_name){
 
 function getWeather($type){
 	$file_name = "weather_today.json";
-	$url = $urlToday;
 	switch ($type) {
     case "today":
         $file_name = "weather_today.json";
