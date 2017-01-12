@@ -100,17 +100,8 @@ function getWeatherWeek(){
 		$name = $weather['city']['name'];	
 		$result  = "Meteo ".$name."\n\n";
 		
-		$list = $weather['list'][0];
-		echo $list;
-		
-		//foreach ($list as $weatherValue){
-			 foreach ($list as $key => $value){
-				 $result .= $key . "-". $value;
-            //$result[$key] = object_to_array($value);
-        
-			
-			
-			/*
+		$list = $weather['list'][0];		
+		foreach ($list as $weatherValue){
 			$dt = $weatherValue['dt'];
 			$datetime = new DateTime();
 			$datetime->setTimestamp($dt);
@@ -128,11 +119,9 @@ function getWeatherWeek(){
 			$result .= "Temperatura ".$temp."° \n";
 			$result .= ucfirst($description)." \n";
 			$result .= "Umidità ".$humidity."% \n";
+			$result .= "\n";
 			
-			*/
-			$result .= "\n"
-			
-		}	
+		}
 	
 	}
 	return utf8_encode($result);		
