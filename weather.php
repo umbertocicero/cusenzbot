@@ -63,6 +63,7 @@ function getWeather($type){
 		}
 		writeWeather($jsonFile, $file_name);
 	}
+	echo $jsonFile;
 	return $jsonFile;
 }
 
