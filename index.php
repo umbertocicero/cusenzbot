@@ -4,7 +4,7 @@
 
 <h1>CusenzBot</h1>
 
-<p>Questo bot \u00E8 perfetto per tutti i cosentini (e non solo)</p>
+<p>Questo bot &#233; perfetto per tutti i cosentini (e non solo)</p>
 <br />
 <p>lista comandi per ogni categoria:</p>
 <ul>
