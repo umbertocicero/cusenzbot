@@ -90,9 +90,10 @@ function getWeatherToday(){
 		$result .= "Vento ".$wind." Km/h \n";
 		$result .= "Umidità ".$humidity."% \n";
 	}
-	$encoded = utf8_encode($result);
-	return $encoded;	
+	return utf8_encode($result);	
 }
 function getWeatherWeek(){	
-	return "";	
+	$weather = json_decode(getWeather("week"), true);
+	$result = "Meteo momentaneamente non disponibile";
+	return utf8_encode($result);	
 }
