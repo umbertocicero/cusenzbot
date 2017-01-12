@@ -31,13 +31,17 @@ function getWeather(){
 	fclose($myfile);
 	if(isset($weather)) {		
 		$dt = $weather['dt'];
-		$lastTime = gmdate("YmdH",$dt); 
-		$today = gmdate("YmdH");
+		
+		//$lastTime = gmdate("YmdH",$dt); 
+		$lastTime = gmdate("Y-m-d\TH:i:s\Z", $dt);
+		$today = gmdate("Y-m-d\TH:i:s\Z");
 		echo $dt;
 		echo "    ";
 		echo $lastTime;
 		echo "    ";
 		echo $today;
+		$lastTime = gmdate("YmdH", $dt);
+		$today = gmdate("YmdH");
 		if($lastTime < $today || $weather['cod'] == 200){
 			$jsonFile = callWeather();
 			writeWeather($jsonFile);
