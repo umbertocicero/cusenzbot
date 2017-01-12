@@ -1,14 +1,8 @@
-<?php echo "test/n";
+<?php echo "test----";
 
-echo checkWeatherTime();
+echo getWeatherMsg();
 
-function getWeather() {
-	
-	$today = date("Ymd");                           // 20010310
-	echo 'Now:       '. $today ."\n";
-	
-	
-	
+function callWeather() {
 	$url = "http://api.openweathermap.org/data/2.5/weather?id=2524907&appid=65afaf2b63bbcca892a620603b4bba7b&lang=it&units=metric";
 	//  Initiate curl
 	$ch = curl_init();
@@ -21,48 +15,10 @@ function getWeather() {
 	// Execute
 	$result=curl_exec($ch);
 	// Closing
-	curl_close($ch);
-
-	// Will dump a beauty json :3
-	//$weather = readWeather($result);
-	$weather = (json_decode($result, true));
-	if(isset($weather['weather']) && isset($weather['main'])){
-		$description = $weather['weather'][0]['description'];
-		$temp = $weather['main']['temp'];
-		$dt = $weather['dt'];
-		$j_time = date("Ymd",$dt); 
-		//$result = $description." - ".$temp." - ".$temp." - ".$j_time;
-		
-		//echo $temp;
-		//echo $dt;
-		
-		
-		                          // 20010310
-		//echo 'j_time:       '. $j_time ."\n";
-	}
-	
-	
+	curl_close($ch);	
 	return $result;
 }
 
-function readWeather($json){
-	$weather = (json_decode($json, true));
-	if(isset($weather['weather']) && isset($weather['main'])){
-		$description = $weather['weather'][0]['description'];
-		$temp = $weather['main']['temp'];
-		$dt = $weather['dt'];
-		$j_time = date("Ymd",$dt); 
-		//$result = $description." - ".$temp." - ".$temp." - ".$j_time;
-		
-		//echo $temp;
-		//echo $dt;
-		
-		
-		                          // 20010310
-		//echo 'j_time:       '. $j_time ."\n";
-	}
-	return $weather;
-}
 function writeWeather($jsonFile){
 	$myfile = fopen("weather.json", "w");
 	$txt = $jsonFile;
@@ -70,27 +26,50 @@ function writeWeather($jsonFile){
 	fclose($myfile);	
 }
 
-function checkWeatherTime(){	
+function getWeather(){	
 	$myfile = fopen("weather.json", "r");
 	$jsonFile = fread($myfile,filesize("weather.json"));
 	$weather = (json_decode($jsonFile, true));
 	fclose($myfile);
 	if(isset($weather)) {
-		//while(!feof($myfile)) {
-		//  echo fgets($myfile) . "<br>";
-		//}
-		
 		echo "LOCALE";
 		echo $jsonFile;
-		//echo fread($myfile,filesize("weather.json"));
+		
+		$dt = $weather['dt'];
+		$lastTime = date("YmdH",$dt); 
+		$today = date("YmdH");
+		if($lastTime < $today || $weather['cod'] == 200){
+			$jsonFile = callWeather();
+			writeWeather($jsonFile);
+		}
 		
 	} else {
-		$jsonFile = getWeather();
+		$jsonFile = callWeather();
 		
 		echo "REMOTE";
 		
 		writeWeather($jsonFile);
 	}
-	
-	
+	return $jsonFile;
+}
+
+function getWeatherMsg(){	
+	$weather = (json_decode(getWeather(), true));
+	$result = "Meteo momentaneamente non disponibile";
+	if(isset($weather['weather']) && isset($weather['main']) && $weather['cod'] == 200){
+		$description = $weather['weather'][0]['description'];
+		$temp = $weather['main']['temp'];
+		$humidity = $weather['main']['humidity'];
+		$dt = $weather['dt'];
+		$j_time = date("YmdH",$dt);
+		$name = $weather['name'];	
+		$wind = $weather['wind']['speed'];
+		$result  = "Meteo di ".$name."/n";
+		$result .= "Aggiornato alle ".$j_time." /n/n";
+		$result .= "Temperatura ".$temp."° /n";
+		$result .= $description." /n";
+		$result .= "Vento ".$wind." Km/h /n";
+		$result .= "Umidità ".$humidity."% /n";
+	}
+	return $result;	
 }
