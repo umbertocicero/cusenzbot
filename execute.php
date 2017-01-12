@@ -115,7 +115,7 @@ function sendMsg($c,$t) {
 	header("Content-Type: application/json");
 	$parameters = array('chat_id' => $c, "text" => $t);
 	$parameters["method"] = "sendMessage";
-	echo json_encode($parameters, JSON_UNESCAPED_UNICODE);
+	echo json_encode($parameters);
 }
 function sendPhoto($c,$id) {
 	$botUrl = "https://api.telegram.org/bot" . BOT_TOKEN . "/sendPhoto";

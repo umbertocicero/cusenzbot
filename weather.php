@@ -70,12 +70,14 @@ function getWeatherMsg(){
 		
 		$name = $weather['name'];	
 		$wind = $weather['wind']['speed'];
-		$result  = "Meteo di ".$name."\n";
+		$result  = "Meteo ".$name."\n";
 		//$result .= "Aggiornato alle ".$j_time." \n\n";
 		$result .= "Temperatura ".$temp."\u{00B0} \n";
 		$result .= ucfirst($description)." \n";
 		$result .= "Vento ".$wind." Km/h \n";
 		$result .= "Umidit\u00E0 \U00E0".$humidity."% \n";
 	}
-	return $result;	
+	$encoded = json_encode($result, JSON_UNESCAPED_UNICODE);
+	$decoded = json_encode($encoded, true);
+	return $decoded;	
 }
