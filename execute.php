@@ -62,6 +62,7 @@ switch ($firstText) {
         break;
 	case "/meteo":
 		$resultText = "1. Meteo\n";
+		$resultText = "2. Meteo settimana\n";
 		sendMsg($chatId,$resultText);
         break;
 		/*
@@ -94,8 +95,11 @@ foreach ($json_a as $k => $v) {
 			
 			$resultText = $t;
 			switch ($resultText) {
-				case "@meteo":
+				case "@weatherToday":
 					$resultText = getWeatherToday();
+					break;
+				case "@weatherWeek":
+					$resultText = getWeatherWeek();
 					break;
 				case "@foto":
 					sendPhoto($chatId,$t);
