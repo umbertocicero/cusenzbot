@@ -88,7 +88,7 @@ function getWeatherToday(){
 		//$result .= "Aggiornato alle ".$j_time." \n\n";
 		$result .= "Temperatura ".$temp."° \n";
 		$result .= ucfirst($description)." \n";
-		$result .= "Vento ".$wind." Km/h \uD83D\uDE00 \n";
+		$result .= "Vento ".$wind." Km/h \u{1F30F} \n";
 		$result .= "Umidità ".$humidity."% \n";
 	}
 	return utf8_encode($result);	
