@@ -129,7 +129,6 @@ function getWeatherWeek(){
 		    $day = strftime("%a %m-%d", $dt);
 			$result .= $day." \n";
 			
-			$j_time = format($datetime);
 			//$result .= $day." ".$j_time." \n";
 			
 			$temp = $weatherValue['temp']['day'];
