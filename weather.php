@@ -86,12 +86,14 @@ function getWeatherToday(){
 		$wind = $weather['wind']['speed'];
 		$result  = "Meteo ".$name."\n\n";
 		//$result .= "Aggiornato alle ".$j_time." \n\n";
-		$result .= "Temperatura ".$temp."° \n";
+		$result .= "Temperatura ".$temp."°  \n";
 		$result .= ucfirst($description)." \n";
 		$result .= "Vento ".$wind." Km/h \u{1F30F} \n";
 		$result .= "Umidità ".$humidity."% \u2600 \n";
 	}
-	return mb_convert_encoding(utf8_encode($result), "utf-8", "UTF-16BE");
+	
+	$result = json_decode('"\uD83D\uDE00"');
+	return utf8_encode($result);
 	
 	
 	//return utf8_encode($result);	
