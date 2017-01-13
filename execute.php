@@ -77,8 +77,7 @@ switch ($firstText) {
 		sendMsg($chatId,$resultText);
         break;
 	case "/meteo_settimana":
-		//$resultText = getWeatherWeek();
-		$resultText = "AAAAAAAAAAAAAAAAAAAAAAAAAAA"
+		$resultText = getWeatherWeek();
 		sendMsg($chatId,$resultText);
         break;
 		/*
