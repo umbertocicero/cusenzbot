@@ -127,6 +127,15 @@ function getWeatherWeek(){
 			setLocale(LC_TIME, 'ita', 'it_IT'); 
 		    $day = strftime("%A %d %B %Y", $dt);
 			
+			$fmt = new IntlDateFormatter('it_IT',
+				IntlDateFormatter::FULL,
+				IntlDateFormatter::FULL,
+				'Europe/Berlin',
+				IntlDateFormatter::GREGORIAN,
+				'L MM/dd/yyyy');
+
+			$day = $fmt->$dt;
+			
 			$result .= $day." ".$j_time." \n";
 			
 			$temp = $weatherValue['temp']['day'];
