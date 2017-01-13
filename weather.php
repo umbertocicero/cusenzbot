@@ -137,8 +137,8 @@ function getWeatherWeek(){
 				IntlDateFormatter::GREGORIAN,
 				'EEEE MM-dd-yyyy');
 
-			$j_time = $IntlDateFormatter -> format($datetime);
-			
+			//$j_time = $IntlDateFormatter -> format($datetime);
+			$j_time = format($datetime);
 			$result .= $day." ".$j_time." \n";
 			
 			$temp = $weatherValue['temp']['day'];
