@@ -52,6 +52,7 @@ switch ($firstText) {
 		$resultText .= "/testo\n";
 		$resultText .= "/meteo\n";
 		$resultText .= "/foto\n";
+		$resultText .= "/audio\n";
 		$resultText .= "\n";
 		sendMsg($resultText);
 		exit;
@@ -70,6 +71,10 @@ switch ($firstText) {
 	case "/meteo":
 		$resultText  = "1. /meteo_oggi\n";
 		$resultText .= "2. /meteo_settimana\n";
+		sendMsg($resultText);
+        break;
+	case "/audio":
+		$resultText  = "1. Zabatta | Solfami \n";
 		sendMsg($resultText);
         break;
 	case "/meteo_oggi":
@@ -134,6 +139,22 @@ foreach ($json_a as $k => $v) {
 							   $picture = $v;
 							}
 							sendPhoto($picture);
+							exit;
+						}
+					}
+					exit;
+				case "@photo":
+				
+					$sound_a = json_decode(file_get_contents(realpath("sound.json")), true);
+					foreach ($sound_a as $k => $v) {	
+						if($resultText==$k){
+							if(is_array($v)) {
+							   $random = rand(0, count($v)-1);
+							   $sound = $v[$random]; 
+							} else {
+							   $sound = $v;
+							}
+							sendSound($sound);
 							exit;
 						}
 					}
