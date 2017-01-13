@@ -1,5 +1,6 @@
 <?php require('weather.php');
 define("BOT_TOKEN", "326665840:AAGd8Y7ReODVEtKZ8DffNkwv0CvuWxLIcmE");
+define("BOT_USERNAME", "CusenzBot");
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 
@@ -16,6 +17,11 @@ $lastname = isset($message['chat']['last_name']) ? $message['chat']['last_name']
 $username = isset($message['chat']['username']) ? $message['chat']['username'] : "";
 $date = isset($message['date']) ? $message['date'] : "";
 $text = isset($message['text']) ? $message['text'] : "";
+
+$new_chat_participant = isset($message['new_chat_participant']) ? $message['new_chat_participant'] : "";
+if($$new_chat_participant == BOT_USERNAME){
+	$text = "/start";
+}
 
 $resultText = trim($text);
 $textSplit = explode(" ", $resultText);
