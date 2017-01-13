@@ -129,7 +129,7 @@ function getWeatherWeek(){
 		    $day = strftime("%A %d %B %Y", $dt);
 			
 			
-			*/
+			
 			$IntlDateFormatter = new IntlDateFormatter(
 				'it_IT',
 				IntlDateFormatter::FULL,
@@ -137,7 +137,7 @@ function getWeatherWeek(){
 				'Europe/Rome',
 				IntlDateFormatter::GREGORIAN,
 				'EEEE MM-dd-yyyy');
-
+*/
 			//$j_time = $IntlDateFormatter -> format($datetime);
 			//$j_time = format($datetime);
 			//$result .= $day." ".$j_time." \n";
