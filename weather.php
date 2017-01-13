@@ -141,8 +141,7 @@ function getWeatherWeek(){
 $IntlDateFormatter = new IntlDateFormatter(
     'it_IT',
     IntlDateFormatter::LONG,
-    IntlDateFormatter::LONG,
-	'Europe/Rome'
+    IntlDateFormatter::LONG
 );
 			//$j_time = $IntlDateFormatter -> format($datetime);
 			//$j_time = format($datetime);
