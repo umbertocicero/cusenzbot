@@ -90,12 +90,7 @@ switch ($firstText) {
 		$resultText .= "scrivi /start per maggiori informazioni\n";
 		sendMsg($resultText);
         break;
-		/*
-    case "/foto":
-		sendPhoto($text);
-        break;
-		*/
-	default:
+	//default:
 		//sendMsg($update);
 		//$resultText = $_SERVER['REMOTE_ADDR'];
 		//sendMsg($resultText);
@@ -153,7 +148,7 @@ foreach ($json_a as $k => $v) {
 							} else {
 							   $sound = $v;
 							}
-							sendSound($sound);
+							sendSound($chat_id, $sound);
 							exit;
 						}
 					}
@@ -184,19 +179,19 @@ function sendPhoto($chatId,$id) {
 	//$telegram->sendPhoto($content);
 	
 	$api = "sendPhoto";
-	$botUrl = "https://api.telegram.org/bot" . BOT_TOKEN . "/" . $api;
+	$url = "https://api.telegram.org/bot" . BOT_TOKEN . "/" . $api;
 	$postFields = array('chat_id' => $chatId, 'photo' => $photo, 'caption' => $text);
 	$ch = curl_init(); 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: multipart/form-data"));
-	curl_setopt($ch, CURLOPT_URL, $botUrl); 
+	curl_setopt($ch, CURLOPT_URL, $url); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
 	$output = curl_exec($ch);
 	
 }
-function sendSound($id) {
-	$telegram = new Telegram(BOT_TOKEN);
-	$chat_id = $telegram->ChatID();
+function sendSound($chat_id, $id) {
+	//$telegram = new Telegram(BOT_TOKEN);
+	//$chat_id = $telegram->ChatID();
 	$audio = new CURLFile(realpath("sound/".$id));
 	//$content = array('chat_id' => $chat_id, 'audio' => $audio);
 	//$telegram->sendAudio($content);
