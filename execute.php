@@ -63,7 +63,7 @@ switch ($firstText) {
 		$resultText .= "/foto\n";
 		$resultText .= "/audio\n";
 		$resultText .= "\n";
-		sendMsg($resultText);
+		sendMsg($chat_id, $resultText);
 		exit;
 	case "/testo":
 		$resultText  = "1. Ciao\n";
@@ -71,38 +71,38 @@ switch ($firstText) {
 		$resultText .= "3. Minaccia {nome persona} - Es: Minaccia Mario\n";
 		$resultText .= "4. Proverbio | Nonno\n";
 		$resultText .= "5. Poesia\n";
-		sendMsg($resultText);
+		sendMsg($chat_id, $resultText);
         break;
 	case "/foto":
 		$resultText = "1. Foto | Immagine\n";
-		sendMsg($resultText);
+		sendMsg($chat_id, $resultText);
         break;
 	case "/meteo":
 		$resultText  = "1. /meteo_oggi\n";
 		$resultText .= "2. /meteo_settimana\n";
-		sendMsg($resultText);
+		sendMsg($chat_id, $resultText);
         break;
 	case "/audio":
 		$resultText  = "1. Zabatta | Solfami \n";
-		sendMsg($resultText);
+		sendMsg($chat_id, $resultText);
         break;
 	case "/meteo_oggi":
 		$resultText = getWeatherToday();
-		sendMsg($resultText);
+		sendMsg($chat_id, $resultText);
         break;
 	case "/meteo_settimana":
 		$resultText = getWeatherWeek();
-		sendMsg($resultText);
+		sendMsg($chat_id, $resultText);
         break;
 	case "/ciao":
 		$resultText  = "Ciao a tutti :)\n";
 		$resultText .= "scrivi /start per maggiori informazioni\n";
-		sendMsg($resultText);
+		sendMsg($chat_id, $resultText);
         break;
 	//default:
-		//sendMsg($update);
+		//sendMsg($chat_id, $update);
 		//$resultText = $_SERVER['REMOTE_ADDR'];
-		//sendMsg($resultText);
+		//sendMsg($chat_id, $resultText);
 }
 
 $json_a = json_decode(file_get_contents(realpath("response.json")), true);
@@ -165,7 +165,7 @@ foreach ($json_a as $k => $v) {
 			}
 			
 			$resultText = str_replace("%s", $secondText, $resultText);
-			sendMsg($resultText);
+			sendMsg($chat_id, $resultText);
 			$found = true;
 			break;
 		}
