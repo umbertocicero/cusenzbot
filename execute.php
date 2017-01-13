@@ -20,7 +20,7 @@ $text = isset($message['text']) ? $message['text'] : "";
 
 $new_chat_participant = isset($message['new_chat_participant']) ? $message['new_chat_participant']['username'] : "";
 if($new_chat_participant == BOT_USERNAME){
-	$text = "/start";
+	$text = "/hello";
 }
 
 $resultText = trim($text);
@@ -78,6 +78,11 @@ switch ($firstText) {
         break;
 	case "/meteo_settimana":
 		$resultText = getWeatherWeek();
+		sendMsg($chatId,$resultText);
+        break;
+	case "/hello":
+		$resultText  = "Ciao a tutti :)\n";
+		$resultText .= "scrivi /start per maggiori informazioni\n";
 		sendMsg($chatId,$resultText);
         break;
 		/*

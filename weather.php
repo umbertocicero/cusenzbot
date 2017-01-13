@@ -93,7 +93,7 @@ function getWeatherToday(){
 	}
 	
 	$result = json_decode('"\u2600"');
-	return utf8_encode($result);
+	return ($result);
 	
 	
 	//return utf8_encode($result);	
