@@ -138,6 +138,12 @@ function getWeatherWeek(){
 				IntlDateFormatter::GREGORIAN,
 				'EEEE MM-dd-yyyy');
 */
+$IntlDateFormatter = new IntlDateFormatter(
+    'it_IT',
+    IntlDateFormatter::LONG,
+    IntlDateFormatter::LONG,
+	'Europe/Rome'
+);
 			//$j_time = $IntlDateFormatter -> format($datetime);
 			//$j_time = format($datetime);
 			//$result .= $day." ".$j_time." \n";
