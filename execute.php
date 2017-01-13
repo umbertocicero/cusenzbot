@@ -18,7 +18,7 @@ $username = isset($message['chat']['username']) ? $message['chat']['username'] :
 $date = isset($message['date']) ? $message['date'] : "";
 $text = isset($message['text']) ? $message['text'] : "";
 
-$new_chat_participant = isset($message['new_chat_participant']) ? $message['new_chat_participant'] : "";
+$new_chat_participant = isset($message['new_chat_participant']) ? $message['new_chat_participant']['username'] : "";
 if($new_chat_participant == BOT_USERNAME){
 	$text = "/start";
 }
@@ -86,7 +86,7 @@ switch ($firstText) {
         break;
 		*/
 	default:
-	$resultText .= ":::::::::::::".$update;
+		$resultText .= ":::::::::::::".$firstText;
 		//sendMsg($chatId,$update);
        sendMsg($chatId,$resultText );
 }
