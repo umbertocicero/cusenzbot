@@ -124,25 +124,24 @@ function getWeatherWeek(){
 			$datetime->setTimezone($la_time);
 			$j_time = $datetime->format('d-m-Y');
 			
-			setLocale(LC_TIME|LC_CTYPE, 'it_IT'); 
-		    $day = strftime("%A ", $dt);
+			setLocale(LC_TIME, 'ita', 'it_IT'); 
+		    $day = strftime("%A %d %B %Y", $dt);
 			
-			
-			$result .= "Giorno ".$day.$j_time." \n";
+			$result .= $day." ".$j_time." \n";
 			
 			$temp = $weatherValue['temp']['day'];
 			$description = $weatherValue['weather'][0]['description'];
 			$mainType = $weatherValue['weather'][0]['main'];
 			$icon = getWeatherIco($mainType);
 			
-			$result .= "Temperatura ".$temp."° \n";
+			$result .= utf8_encode("Temperatura ".$temp."° \n");
 			$result .= ucfirst($description)." ".$icon." \n";
 			$result .= "\n";
 			
 		}
 	
 	}
-	return utf8_encode($result);		
+	return $result;		
 }
 
 function getWeatherIco($type){	
