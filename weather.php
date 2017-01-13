@@ -96,10 +96,10 @@ function getWeatherToday(){
 	//$result = json_decode("".$result."");
 	$ico = json_decode('"\u2600"');
 	$result .= $ico;
-	return ($result);
+	//return ($result);
 	
 	
-	//return utf8_encode($result);	
+	return utf8_encode($result);	
 }
 function getWeatherWeek(){	
 	$weather = json_decode(getWeather("week"), true);
