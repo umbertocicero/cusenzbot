@@ -4,15 +4,7 @@ include("Telegram.php");
 
 define("BOT_TOKEN", "326665840:AAGd8Y7ReODVEtKZ8DffNkwv0CvuWxLIcmE");
 define("BOT_USERNAME", "CusenzBot");
-/*
-$content = file_get_contents("php://input");
-$update = json_decode($content, true);
 
-if(!$update)
-{
-  exit;
-}
-*/
 //GitHub: https://github.com/Eleirbag89/TelegramBotPHP
 $telegram = new Telegram(BOT_TOKEN);
 $result = $telegram->getData();
@@ -28,7 +20,7 @@ $text = isset($message['text']) ? $message['text'] : "";
 
 $new_chat_participant = isset($message['new_chat_participant']) ? $message['new_chat_participant']['username'] : "";
 if($new_chat_participant == BOT_USERNAME){
-	$text = "/hello";
+	$text = "/ciao";
 }
 
 $resultText = trim($text);
@@ -88,20 +80,20 @@ switch ($firstText) {
 		$resultText = getWeatherWeek();
 		sendMsg($resultText);
         break;
-	case "/hello":
+	case "/ciao":
 		$resultText  = "Ciao a tutti :)\n";
 		$resultText .= "scrivi /start per maggiori informazioni\n";
 		sendMsg($resultText);
         break;
 		/*
     case "/foto":
-		sendPhoto($chatId,$text);
+		sendPhoto($text);
         break;
 		*/
 	default:
-		//sendMsg($chatId,$update);
-		$resultText = $_SERVER['REMOTE_ADDR'];
-		sendMsg($resultText);
+		//sendMsg($update);
+		//$resultText = $_SERVER['REMOTE_ADDR'];
+		//sendMsg($resultText);
 }
 
 $json_a = json_decode(file_get_contents(realpath("response.json")), true);
@@ -151,25 +143,13 @@ foreach ($json_a as $k => $v) {
 			$resultText = str_replace("%s", $secondText, $resultText);
 			sendMsg($resultText);
 			$found = true;
-			exit;
+			break;
 		}
 	}
 	
 }
 
-function sendMsg($text) {
-	/*
-	header("Content-Type: application/json");
-	$parameters = array('chat_id' => $chat_id, "text" => $text);
-	$parameters["method"] = "sendMessage";
-	
-	// imposto la keyboard
-	//$parameters["reply_markup"] = '{ "keyboard": [["uno"], ["due"], ["tre"], ["quattro"]], "one_time_keyboard": false}';
-	
-	echo json_encode($parameters);
-	
-	*/
-	
+function sendMsg($text) {	
 	$telegram = new Telegram(BOT_TOKEN);
 	$chat_id = $telegram->ChatID();
 	$content = array('chat_id' => $chat_id, 'text' => $text);
@@ -177,18 +157,6 @@ function sendMsg($text) {
 }
 
 function sendPhoto($id) {
-	/*
-	$botUrl = "https://api.telegram.org/bot" . BOT_TOKEN . "/sendPhoto";
-    // change image name and path
-	$postFields = array('chat_id' => $c, 'photo' => new CURLFile(realpath("images/".$id)), 'caption' => $text);
-	$ch = curl_init(); 
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: multipart/form-data"));
-	curl_setopt($ch, CURLOPT_URL, $botUrl); 
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
-	// read curl response
-	$output = curl_exec($ch);
-	*/
 	$telegram = new Telegram(BOT_TOKEN);
 	$chat_id = $telegram->ChatID();
 	$img = new CURLFile(realpath("images/".$id));

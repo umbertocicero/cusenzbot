@@ -172,10 +172,10 @@ function getWeatherIco($type){
 			$icon = '"\uD83C\uDF01"'; 
 			break;
 		case "fog":
-			$icon = '"\uD83C\uDF01"'; 
+			$icon = '"\u1F32B"'; 
 			break;
 		case "atmosphere":
-			$icon = '"\uD83C\uDF01"'; 
+			$icon = '"\u1F32B"'; 
 			break;
 	}
 	return json_decode($icon);
