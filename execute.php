@@ -57,7 +57,7 @@ $firstText = trim($firstText);
 switch ($firstText) {
     case "/start":
         $resultText = "Ciao sono CusenzBot!\n\n";
-		$resultText .= "Questo bot é perfetto per tutti i cosentini (e non solo). \n";
+		$resultText .= "Questo bot é perfetto per tutti i cosentini (e provincia). \n";
 		$resultText .= "Ideale per dare un po di vita al vostro gruppo si amici su Telegram\n\n";
 		$resultText .= "Lista comandi per ogni categoria:\n";
 		$resultText .= "/testo\n";
