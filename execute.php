@@ -143,7 +143,7 @@ foreach ($json_a as $k => $v) {
 						}
 					}
 					exit;
-				case "@photo":
+				case "@zabatta":
 				
 					$sound_a = json_decode(file_get_contents(realpath("sound.json")), true);
 					foreach ($sound_a as $k => $v) {	
