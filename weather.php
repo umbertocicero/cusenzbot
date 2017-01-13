@@ -120,31 +120,16 @@ function getWeatherWeek(){
 			$dt = $weatherValue['dt'];
 			$datetime = new DateTime();
 			$datetime->setTimestamp($dt);
-			/*
+			
 			$la_time = new DateTimeZone('Europe/Rome');
 			$datetime->setTimezone($la_time);
 			$j_time = $datetime->format('d-m-Y');
 			
 			setLocale(LC_TIME, 'ita', 'it_IT'); 
-		    $day = strftime("%A %d %B %Y", $dt);
+		    $day = strftime("%a %m-%d", $dt);
+			$result .= $day." \n";
 			
-			
-			
-			$IntlDateFormatter = new IntlDateFormatter(
-				'it_IT',
-				IntlDateFormatter::FULL,
-				IntlDateFormatter::FULL,
-				'Europe/Rome',
-				IntlDateFormatter::GREGORIAN,
-				'EEEE MM-dd-yyyy');
-*/
-$IntlDateFormatter = new IntlDateFormatter(
-    'it_IT',
-    IntlDateFormatter::LONG,
-    IntlDateFormatter::LONG
-);
-			//$j_time = $IntlDateFormatter -> format($datetime);
-			//$j_time = format($datetime);
+			$j_time = format($datetime);
 			//$result .= $day." ".$j_time." \n";
 			
 			$temp = $weatherValue['temp']['day'];
