@@ -1,4 +1,7 @@
-<?php require('weather.php');
+<?php 
+require('weather.php'); 
+include("Telegram.php");
+
 define("BOT_TOKEN", "326665840:AAGd8Y7ReODVEtKZ8DffNkwv0CvuWxLIcmE");
 define("BOT_USERNAME", "CusenzBot");
 $content = file_get_contents("php://input");
@@ -8,6 +11,8 @@ if(!$update)
 {
   exit;
 }
+
+
 
 $message = isset($update['message']) ? $update['message'] : "";
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
@@ -149,17 +154,23 @@ foreach ($json_a as $k => $v) {
 	
 }
 
-function sendMsg($c,$t) {
+function sendMsg($chat_id,$t) {
+	/*
 	header("Content-Type: application/json");
-	$parameters = array('chat_id' => $c, "text" => $t);
+	$parameters = array('chat_id' => $chat_id, "text" => $t);
 	$parameters["method"] = "sendMessage";
-	
 	
 	// imposto la keyboard
 	//$parameters["reply_markup"] = '{ "keyboard": [["uno"], ["due"], ["tre"], ["quattro"]], "one_time_keyboard": false}';
 	
-	
 	echo json_encode($parameters);
+	
+	*/
+	$bot_id = BOT_TOKEN;
+	$telegram = new Telegram($bot_id);
+	$chat_id = $telegram->ChatID();
+	$content = array('chat_id' => $chat_id, 'text' => "Test");
+	$telegram->sendMessage($content);
 }
 
 function sendPhoto($c,$id) {
