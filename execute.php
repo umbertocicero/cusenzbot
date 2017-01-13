@@ -91,7 +91,6 @@ switch ($firstText) {
         break;
 		*/
 	//default:
-		//$resultText .= ":::::::::::::".$firstText;
 		//sendMsg($chatId,$update);
 		//sendMsg($chatId,$resultText);
 }
@@ -149,13 +148,19 @@ foreach ($json_a as $k => $v) {
 	
 }
 
-
 function sendMsg($c,$t) {
 	header("Content-Type: application/json");
 	$parameters = array('chat_id' => $c, "text" => $t);
 	$parameters["method"] = "sendMessage";
+	
+	
+	// imposto la keyboard
+	$parameters["reply_markup"] = '{ "keyboard": [["uno"], ["due"], ["tre"], ["quattro"]], "one_time_keyboard": false}';
+	
+	
 	echo json_encode($parameters);
 }
+
 function sendPhoto($c,$id) {
 	$botUrl = "https://api.telegram.org/bot" . BOT_TOKEN . "/sendPhoto";
     // change image name and path
@@ -169,6 +174,14 @@ function sendPhoto($c,$id) {
 	$output = curl_exec($ch);
 }
 
+function checkJSON($chatID,$update){
+	$myFile = "log.txt";
+	$updateArray = print_r($update,TRUE);
+	$fh = fopen($myFile, 'a') or die("can't open file");
+	fwrite($fh, $chatID ."\n\n");
+	fwrite($fh, $updateArray."\n\n");
+	fclose($fh);
+}
 
 
 
