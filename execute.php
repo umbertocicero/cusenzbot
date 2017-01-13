@@ -90,9 +90,10 @@ switch ($firstText) {
 		sendPhoto($chatId,$text);
         break;
 		*/
-	//default:
+	default:
 		//sendMsg($chatId,$update);
-		//sendMsg($chatId,$resultText);
+		$resultText = $_SERVER['REMOTE_ADDR'];
+		sendMsg($chatId,$resultText);
 }
 
 $json_a = json_decode(file_get_contents(realpath("response.json")), true);
@@ -155,7 +156,7 @@ function sendMsg($c,$t) {
 	
 	
 	// imposto la keyboard
-	$parameters["reply_markup"] = '{ "keyboard": [["uno"], ["due"], ["tre"], ["quattro"]], "one_time_keyboard": false}';
+	//$parameters["reply_markup"] = '{ "keyboard": [["uno"], ["due"], ["tre"], ["quattro"]], "one_time_keyboard": false}';
 	
 	
 	echo json_encode($parameters);
@@ -166,7 +167,7 @@ function sendPhoto($c,$id) {
     // change image name and path
 	$postFields = array('chat_id' => $c, 'photo' => new CURLFile(realpath("images/".$id)), 'caption' => $text);
 	$ch = curl_init(); 
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type:multipart/form-data"));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: multipart/form-data"));
 	curl_setopt($ch, CURLOPT_URL, $botUrl); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
