@@ -88,7 +88,7 @@ function getWeatherToday(){
 		//$result .= "Aggiornato alle ".$j_time." \n\n";
 		$result .= "Temperatura ".$temp."° \n";
 		$result .= ucfirst($description)." \n";
-		$result .= "Vento ".$wind." Km/h \n";
+		$result .= "Vento ".$wind." Km/h \uD83D\uDE00 \n";
 		$result .= "Umidità ".$humidity."% \n";
 	}
 	return utf8_encode($result);	
@@ -115,7 +115,7 @@ function getWeatherWeek(){
 			$description = $weatherValue['weather'][0]['description'];
 			
 			$result .= "Temperatura ".$temp."° \n";
-			$result .= ucfirst($description)." \u2600 \n";
+			$result .= ucfirst($description)." \n";
 			$result .= "\n";
 			
 		}
