@@ -186,18 +186,18 @@ function sendMsg($chat_id, $text) {
 	echo json_encode($parameters);
 }
 
-function sendPhoto($chat_id,$id) {
-	/*
+function sendPhoto($chat_id, $id) { 
+	/* 
 	$telegram = new Telegram(BOT_TOKEN);
-	$chat_id = $telegram->ChatID();
+	$chat_id = $telegram->ChatID(); 
 	$photo = new CURLFile(realpath("images/".$id));
 	$content = array('chat_id' => $chat_id, 'photo' => $photo);
-	$telegram->sendPhoto($content);
+	$telegram->sendPhoto($content); 
 	*/
 	
 	$api = "sendPhoto";
 	$url = "https://api.telegram.org/bot" . BOT_TOKEN . "/" . $api;
-	$postFields = array('chat_id' => $chat_id, 'photo' => new CURLFile(realpath("images/".$id)););
+	$postFields = array('chat_id' => $chat_id, 'photo' => new CURLFile(realpath("images/".$id)));
 	$ch = curl_init(); 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: multipart/form-data"));
 	curl_setopt($ch, CURLOPT_URL, $url); 
@@ -205,6 +205,7 @@ function sendPhoto($chat_id,$id) {
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
 	$output = curl_exec($ch);
 }
+
 function sendSound($chat_id, $id) {
 	/*
 	$telegram = new Telegram(BOT_TOKEN);
@@ -216,7 +217,7 @@ function sendSound($chat_id, $id) {
 	
 	$api = "sendAudio";
 	$url = 'https://api.telegram.org/bot' . BOT_TOKEN . '/' . $api;
-	$postFields = array('chat_id' => $chat_id, 'audio' => new CURLFile(realpath("sound/".$id)););
+	$postFields = array('chat_id' => $chat_id, 'audio' => new CURLFile(realpath("sound/".$id)));
 	$ch = curl_init(); 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: multipart/form-data"));
 	curl_setopt($ch, CURLOPT_URL, $url); 
