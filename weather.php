@@ -91,8 +91,8 @@ function getWeatherToday(){
 		$result .= "Vento ".$wind." Km/h \u{1F30F} \n";
 		$result .= "Umidità ".$humidity."% \u2600 \n";
 	}
-	
-	$result = json_decode('"\u2600"');
+	$result = json_decode($result);
+	//$result = json_decode('"\u2600"');
 	return ($result);
 	
 	
