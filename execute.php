@@ -1,13 +1,22 @@
 <?php 
 require('weather.php'); 
-include("Telegram.php");
+//include("Telegram.php");
 
 define("BOT_TOKEN", "326665840:AAGd8Y7ReODVEtKZ8DffNkwv0CvuWxLIcmE");
 define("BOT_USERNAME", "CusenzBot");
 
 //GitHub: https://github.com/Eleirbag89/TelegramBotPHP
+/*
 $telegram = new Telegram(BOT_TOKEN);
 $result = $telegram->getData();
+*/
+
+$content = file_get_contents("php://input");
+$update = json_decode($content, true);
+if(!$update)
+{
+  exit;
+}
 
 $message = isset($result['message']) ? $result['message'] : "";
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
@@ -133,7 +142,7 @@ foreach ($json_a as $k => $v) {
 							} else {
 							   $picture = $v;
 							}
-							sendPhoto($telegram,$chatId,$picture);
+							sendPhoto($chatId,$picture);
 							exit;
 						}
 					}
@@ -148,7 +157,7 @@ foreach ($json_a as $k => $v) {
 							} else {
 							   $sound = $v;
 							}
-							sendSound($telegram,$chat_id, $sound);
+							sendSound($chat_id, $sound);
 							exit;
 						}
 					}
@@ -164,41 +173,51 @@ foreach ($json_a as $k => $v) {
 	
 }
 
-function sendMsg($text) {	
+function sendMsg($chat_id, $text) {	
+	/*
 	$telegram = new Telegram(BOT_TOKEN);
 	$chat_id = $telegram->ChatID();
 	$content = array('chat_id' => $chat_id, 'text' => $text);
 	$telegram->sendMessage($content);
+	*/
+	header("Content-Type: application/json");
+	$parameters = array('chat_id' => $chatId, "text" => $text);
+	$parameters["method"] = "sendMessage";
+	echo json_encode($parameters);
 }
 
-function sendPhoto($telegram,$chatId,$id) {
-	//$telegram = new Telegram(BOT_TOKEN);
+function sendPhoto($chatId,$id) {
+	/*
+	$telegram = new Telegram(BOT_TOKEN);
 	$chat_id = $telegram->ChatID();
 	$photo = new CURLFile(realpath("images/".$id));
 	$content = array('chat_id' => $chat_id, 'photo' => $photo);
 	$telegram->sendPhoto($content);
-	/*
+	*/
+	
 	$api = "sendPhoto";
 	$url = "https://api.telegram.org/bot" . BOT_TOKEN . "/" . $api;
-	$postFields = array('chat_id' => $chatId, 'photo' => $photo);
+	$postFields = array('chat_id' => $chatId, 'photo' => new CURLFile(realpath("images/".$id)););
 	$ch = curl_init(); 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: multipart/form-data"));
 	curl_setopt($ch, CURLOPT_URL, $url); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
 	$output = curl_exec($ch);
-	*/
+	
 }
-function sendSound($telegram,$chat_id, $id) {
-	//$telegram = new Telegram(BOT_TOKEN);
+function sendSound($chat_id, $id) {
+	/*
+	$telegram = new Telegram(BOT_TOKEN);
 	$chat_id = $telegram->ChatID();
 	$audio = new CURLFile(realpath("sound/".$id));
 	$content = array('chat_id' => $chat_id, 'audio' => $audio);
 	$telegram->sendAudio($content);
-	/*
+	*/
+	
 	$api = "sendAudio";
 	$url = 'https://api.telegram.org/bot' . BOT_TOKEN . '/' . $api;
-	$postFields = array('chat_id' => $chatId, 'audio' => $audio);
+	$postFields = array('chat_id' => $chatId, 'audio' => new CURLFile(realpath("sound/".$id)););
 	$ch = curl_init(); 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: multipart/form-data"));
 	curl_setopt($ch, CURLOPT_URL, $url); 
