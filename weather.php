@@ -89,9 +89,12 @@ function getWeatherToday(){
 		$result .= "Temperatura ".$temp."° \n";
 		$result .= ucfirst($description)." \n";
 		$result .= "Vento ".$wind." Km/h \u{1F30F} \n";
-		$result .= "Umidità ".$humidity."% \n";
+		$result .= "Umidità ".$humidity."% \u2600 \n";
 	}
-	return utf8_encode($result);	
+	return mb_convert_encoding(utf8_encode($result), "utf-8", "UTF-16BE");
+	
+	
+	//return utf8_encode($result);	
 }
 function getWeatherWeek(){	
 	$weather = json_decode(getWeather("week"), true);
