@@ -184,6 +184,13 @@ function sendPhoto($id) {
 	$content = array('chat_id' => $chat_id, 'photo' => $img);
 	$telegram->sendPhoto($content);
 }
+function sendSound($id) {
+	$telegram = new Telegram(BOT_TOKEN);
+	$chat_id = $telegram->ChatID();
+	$audio = new InputFile(realpath("images/".$id));
+	$content = array('chat_id' => $chat_id, 'audio' => $audio);
+	$telegram->sendAudio($content);
+}
 
 function checkJSON($chatID,$update){
 	$myFile = "log.txt";
