@@ -86,10 +86,12 @@ function getWeatherToday(){
 		$wind = $weather['wind']['speed'];
 		$result  = "Meteo ".$name."\n\n";
 		//$result .= "Aggiornato alle ".$j_time." \n\n";
-		$result .= "Temperatura ".$temp."°  \n";
+		//$result .= "Temperatura ".$temp."°  \n";
 		$result .= ucfirst($description)." \n";
-		$result .= "Vento ".$wind." Km/h \u{1F30F} \n";
-		$result .= "Umidità ".$humidity."% \u2600 \n";
+		$result .= "Vento ".$wind." Km/h \n";
+		//$result .= "Umidità ".$humidity."% \n";
+		
+		$result .= "\u{1F30F} : \u2600 \n";
 	}
 	$result = json_decode($result);
 	//$result = json_decode('"\u2600"');
