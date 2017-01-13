@@ -4,6 +4,7 @@ include("Telegram.php");
 
 define("BOT_TOKEN", "326665840:AAGd8Y7ReODVEtKZ8DffNkwv0CvuWxLIcmE");
 define("BOT_USERNAME", "CusenzBot");
+/*
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 
@@ -11,10 +12,12 @@ if(!$update)
 {
   exit;
 }
+*/
+//GitHub: https://github.com/Eleirbag89/TelegramBotPHP
+$telegram = new Telegram(BOT_TOKEN);
+$result = $telegram->getData();
 
-
-
-$message = isset($update['message']) ? $update['message'] : "";
+$message = isset($result['message']) ? $result['message'] : "";
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
 $chatId = isset($message['chat']['id']) ? $message['chat']['id'] : "";
 $firstname = isset($message['chat']['first_name']) ? $message['chat']['first_name'] : "";
@@ -58,7 +61,7 @@ switch ($firstText) {
 		$resultText .= "/meteo\n";
 		$resultText .= "/foto\n";
 		$resultText .= "\n";
-		sendMsg($chatId,$resultText);
+		sendMsg($resultText);
 		exit;
 	case "/testo":
 		$resultText  = "1. Ciao\n";
@@ -66,29 +69,29 @@ switch ($firstText) {
 		$resultText .= "3. Minaccia {nome persona} - Es: Minaccia Mario\n";
 		$resultText .= "4. Proverbio | Nonno\n";
 		$resultText .= "5. Poesia\n";
-		sendMsg($chatId,$resultText);
+		sendMsg($resultText);
         break;
 	case "/foto":
 		$resultText = "1. Foto | Immagine\n";
-		sendMsg($chatId,$resultText);
+		sendMsg($resultText);
         break;
 	case "/meteo":
 		$resultText  = "1. /meteo_oggi\n";
 		$resultText .= "2. /meteo_settimana\n";
-		sendMsg($chatId,$resultText);
+		sendMsg($resultText);
         break;
 	case "/meteo_oggi":
 		$resultText = getWeatherToday();
-		sendMsg($chatId,$resultText);
+		sendMsg($resultText);
         break;
 	case "/meteo_settimana":
 		$resultText = getWeatherWeek();
-		sendMsg($chatId,$resultText);
+		sendMsg($resultText);
         break;
 	case "/hello":
 		$resultText  = "Ciao a tutti :)\n";
 		$resultText .= "scrivi /start per maggiori informazioni\n";
-		sendMsg($chatId,$resultText);
+		sendMsg($resultText);
         break;
 		/*
     case "/foto":
@@ -98,7 +101,7 @@ switch ($firstText) {
 	default:
 		//sendMsg($chatId,$update);
 		$resultText = $_SERVER['REMOTE_ADDR'];
-		sendMsg($chatId,$resultText);
+		sendMsg($resultText);
 }
 
 $json_a = json_decode(file_get_contents(realpath("response.json")), true);
@@ -138,7 +141,7 @@ foreach ($json_a as $k => $v) {
 							} else {
 							   $picture = $v;
 							}
-							sendPhoto($chatId,$picture);
+							sendPhoto($picture);
 							exit;
 						}
 					}
@@ -146,7 +149,7 @@ foreach ($json_a as $k => $v) {
 			}
 			
 			$resultText = str_replace("%s", $secondText, $resultText);
-			sendMsg($chatId, $resultText);
+			sendMsg($resultText);
 			$found = true;
 			break;
 		}
@@ -154,10 +157,10 @@ foreach ($json_a as $k => $v) {
 	
 }
 
-function sendMsg($chat_id,$t) {
+function sendMsg($text) {
 	/*
 	header("Content-Type: application/json");
-	$parameters = array('chat_id' => $chat_id, "text" => $t);
+	$parameters = array('chat_id' => $chat_id, "text" => $text);
 	$parameters["method"] = "sendMessage";
 	
 	// imposto la keyboard
@@ -166,14 +169,15 @@ function sendMsg($chat_id,$t) {
 	echo json_encode($parameters);
 	
 	*/
+	
 	$bot_id = BOT_TOKEN;
 	$telegram = new Telegram($bot_id);
 	$chat_id = $telegram->ChatID();
-	$content = array('chat_id' => $chat_id, 'text' => "Test");
+	$content = array('chat_id' => $chat_id, 'text' => $text);
 	$telegram->sendMessage($content);
 }
 
-function sendPhoto($c,$id) {
+function sendPhoto($id) {
 	$botUrl = "https://api.telegram.org/bot" . BOT_TOKEN . "/sendPhoto";
     // change image name and path
 	$postFields = array('chat_id' => $c, 'photo' => new CURLFile(realpath("images/".$id)), 'caption' => $text);
