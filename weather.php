@@ -125,7 +125,7 @@ function getWeatherWeek(){
 			//$j_time = $datetime->format('d-m-Y');
 			
 			setLocale(LC_TIME|LC_CTYPE, 'it_IT'); 
-		    $j_time = strftime("%A %d %m", $datetime->format('l d-m-Y'));
+		    $j_time = strftime("%A %d %m", $datetime);
 			
 			
 			$result .= "Giorno ".$j_time." \n";
@@ -151,30 +151,30 @@ function getWeatherIco($type){
 	$type = strtolower($type);
 	switch ($type) {
 		case "clear":
-			$icon = "\u2600"; 
+			$icon = '"\u2600"'; 
 			break;
 		case "clouds":
-			$icon = "\u2601"; 
+			$icon = '"\u2601"'; 
 			break;
 		case "rain":
-			$icon = "\uD83C\uDF27"; 
+			$icon = '"\uD83C\uDF27"'; 
 			break;
 		case "drizzle":
-			$icon = "\uD83C\uDF27"; 
+			$icon = '"\uD83C\uDF27"'; 
 			break;
 		case "thunderstorm":
-			$icon = "\u26C8"; 
+			$icon = '"\u26C8"'; 
 			break;
 		case "snow":
-			$icon = "\u2744"; 
+			$icon = '"\u2744"'; 
 			break;
 		case "mist":
-			$icon = "\uD83C\uDF01"; 
+			$icon = '"\uD83C\uDF01"'; 
 			break;
 		case "atmosphere":
-			$icon = "\uD83C\uDF01"; 
+			$icon = '"\uD83C\uDF01"'; 
 			break;
 	}
-	//return json_decode($icon);
-	return $icon;
+	return json_decode($icon);
+	//return $icon;
 }
