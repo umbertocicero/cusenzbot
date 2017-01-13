@@ -1,25 +1,25 @@
 <?php 
 require('weather.php'); 
-//include("Telegram.php");
+include("Telegram.php");
 
 define("BOT_TOKEN", "326665840:AAGd8Y7ReODVEtKZ8DffNkwv0CvuWxLIcmE");
 define("BOT_USERNAME", "CusenzBot");
 
 //GitHub: https://github.com/Eleirbag89/TelegramBotPHP
-/*
+
 $telegram = new Telegram(BOT_TOKEN);
 $result = $telegram->getData();
 $message = isset($result['message']) ? $result['message'] : "";
-*/
 
+/*
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 if(!$update)
 {
   exit;
 }
-
 $message = isset($update['message']) ? $update['message'] : "";
+*/
 
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
 $chat_id = isset($message['chat']['id']) ? $message['chat']['id'] : "";
@@ -176,27 +176,29 @@ foreach ($json_a as $k => $v) {
 }
 
 function sendMsg($chat_id, $text) {	
-	/*
+	
 	$telegram = new Telegram(BOT_TOKEN);
 	$chat_id = $telegram->ChatID();
 	$content = array('chat_id' => $chat_id, 'text' => $text);
 	$telegram->sendMessage($content);
-	*/
+	
+	/*
 	header("Content-Type: application/json");
 	$parameters = array('chat_id' => $chat_id, "text" => $text);
 	$parameters["method"] = "sendMessage";
 	echo json_encode($parameters);
+	*/
 }
 
 function sendPhoto($chat_id, $id) { 
-	/* 
+	
 	$telegram = new Telegram(BOT_TOKEN);
 	$chat_id = $telegram->ChatID(); 
 	$photo = new CURLFile(realpath("images/".$id));
 	$content = array('chat_id' => $chat_id, 'photo' => $photo);
 	$telegram->sendPhoto($content); 
-	*/
 	
+	/*
 	$api = "sendPhoto";
 	$url = "https://api.telegram.org/bot" . BOT_TOKEN . "/" . $api;
 	$postFields = array('chat_id' => $chat_id, 'photo' => new CURLFile(realpath("images/".$id)));
@@ -206,17 +208,18 @@ function sendPhoto($chat_id, $id) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
 	$output = curl_exec($ch);
+	*/
 }
 
 function sendSound($chat_id, $id) {
-	/*
+	
 	$telegram = new Telegram(BOT_TOKEN);
 	$chat_id = $telegram->ChatID();
 	$audio = new CURLFile(realpath("sound/".$id));
 	$content = array('chat_id' => $chat_id, 'audio' => $audio);
 	$telegram->sendAudio($content);
-	*/
 	
+	/*
 	$api = "sendAudio";
 	$url = 'https://api.telegram.org/bot' . BOT_TOKEN . '/' . $api;
 	$postFields = array('chat_id' => $chat_id, 'audio' => new CURLFile(realpath("sound/".$id)));
@@ -226,6 +229,7 @@ function sendSound($chat_id, $id) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
 	$output = curl_exec($ch);
+	*/
 }
 
 function checkJSON($chat_id,$update){
