@@ -186,7 +186,7 @@ function sendPhoto($id) {
 function sendSound($id) {
 	$telegram = new Telegram(BOT_TOKEN);
 	$chat_id = $telegram->ChatID();
-	$audio = new InputFile(realpath("sound/".$id));
+	$audio = new CURLFile(realpath("sound/".$id));
 	$content = array('chat_id' => $chat_id, 'audio' => $audio);
 	$telegram->sendAudio($content);
 }
