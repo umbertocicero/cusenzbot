@@ -85,10 +85,10 @@ switch ($firstText) {
 		sendPhoto($chatId,$text);
         break;
 		*/
-	default:
-		$resultText .= ":::::::::::::".$firstText;
+	//default:
+		//$resultText .= ":::::::::::::".$firstText;
 		//sendMsg($chatId,$update);
-       sendMsg($chatId,$resultText );
+		//sendMsg($chatId,$resultText);
 }
 
 $json_a = json_decode(file_get_contents(realpath("response.json")), true);

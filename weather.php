@@ -115,7 +115,7 @@ function getWeatherWeek(){
 			$description = $weatherValue['weather'][0]['description'];
 			
 			$result .= "Temperatura ".$temp."° \n";
-			$result .= ucfirst($description)." \n";
+			$result .= ucfirst($description)." \u2600 \n";
 			$result .= "\n";
 			
 		}
