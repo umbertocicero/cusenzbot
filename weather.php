@@ -92,7 +92,7 @@ function getWeatherToday(){
 		$result .= "Umidità ".$humidity."% \u2600 \n";
 	}
 	
-	$result = json_decode('"\uD83D\uDE00"');
+	$result = json_decode('"\u2600"');
 	return utf8_encode($result);
 	
 	
