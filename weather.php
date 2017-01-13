@@ -93,8 +93,9 @@ function getWeatherToday(){
 		
 		$result .= "\u{1F30F} : \u2600 \n";
 	}
-	$result = json_decode($result);
-	//$result = json_decode('"\u2600"');
+	//$result = json_decode("".$result."");
+	$ico = json_decode('"\u2600"');
+	$result .= $ico;
 	return ($result);
 	
 	
