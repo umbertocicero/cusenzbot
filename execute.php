@@ -151,7 +151,7 @@ foreach ($json_a as $k => $v) {
 			$resultText = str_replace("%s", $secondText, $resultText);
 			sendMsg($resultText);
 			$found = true;
-			break;
+			exit;
 		}
 	}
 	
@@ -170,14 +170,14 @@ function sendMsg($text) {
 	
 	*/
 	
-	$bot_id = BOT_TOKEN;
-	$telegram = new Telegram($bot_id);
+	$telegram = new Telegram(BOT_TOKEN);
 	$chat_id = $telegram->ChatID();
 	$content = array('chat_id' => $chat_id, 'text' => $text);
 	$telegram->sendMessage($content);
 }
 
 function sendPhoto($id) {
+	/*
 	$botUrl = "https://api.telegram.org/bot" . BOT_TOKEN . "/sendPhoto";
     // change image name and path
 	$postFields = array('chat_id' => $c, 'photo' => new CURLFile(realpath("images/".$id)), 'caption' => $text);
@@ -188,6 +188,12 @@ function sendPhoto($id) {
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
 	// read curl response
 	$output = curl_exec($ch);
+	*/
+	$telegram = new Telegram(BOT_TOKEN);
+	$chat_id = $telegram->ChatID();
+	$img = new CURLFile(realpath("images/".$id));
+	$content = array('chat_id' => $chat_id, 'photo' => $img);
+	$telegram->sendPhoto($content);
 }
 
 function checkJSON($chatID,$update){
