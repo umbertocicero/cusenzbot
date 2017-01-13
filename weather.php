@@ -72,6 +72,7 @@ function getWeatherToday(){
 	$result = "Meteo momentaneamente non disponibile";
 	if(isset($weather['weather']) && isset($weather['main']) && $weather['cod'] == 200){
 		$description = $weather['weather'][0]['description'];
+		$icon = getWeatherIco($weather['weather'][0]['main']);
 		$temp = $weather['main']['temp'];
 		$humidity = $weather['main']['humidity'];
 		$dt = $weather['dt'];
@@ -80,22 +81,33 @@ function getWeatherToday(){
 		$datetime->setTimestamp($dt);
 		$la_time = new DateTimeZone('Europe/Rome');
 		$datetime->setTimezone($la_time);
-		$j_time = $datetime->format('d-m-Y H:i');
+		
+		/*
+		$oldLocale = setlocale(LC_TIME, 'it_IT');
+		echo utf8_encode( strftime("%a %d %b %Y", $row['eventtime']) );
+		setlocale(LC_TIME, $oldLocale);
+		*/
+		
+		
+		setLocale(LC_TIME|LC_CTYPE, 'it_IT'); 
+		$j_time = strftime($format, $datetime->format('l d-m-Y H:i'));
+		
+		
+		//$j_time = $datetime->format('d-m-Y H:i');
+		
+		
+		
 		
 		$name = $weather['name'];	
 		$wind = $weather['wind']['speed'];
+		
 		$result  = "Meteo ".$name."\n\n";
 		//$result .= "Aggiornato alle ".$j_time." \n\n";
 		$result .= utf8_encode("Temperatura ".$temp."°  \n");
-		$result .= ucfirst($description)." \n";
+		$result .= ucfirst($description)." ".$icon." \n";
 		$result .= "Vento ".$wind." Km/h \n";
 		$result .= utf8_encode("Umidità ".$humidity."% \n");
-		
-		$result .= "\u{1F30F} : \u2600 \n";
 	}
-	//$result = json_decode("".$result."");
-	$ico = json_decode('"\u2600"');
-	$result .= $ico;
 	return ($result);
 	
 	
@@ -121,13 +133,46 @@ function getWeatherWeek(){
 			
 			$temp = $weatherValue['temp']['day'];
 			$description = $weatherValue['weather'][0]['description'];
+			$icon = getWeatherIco($weatherValue['weather'][0]['main']);
 			
 			$result .= "Temperatura ".$temp."° \n";
-			$result .= ucfirst($description)." \n";
+			$result .= ucfirst($description)." ".$icon." \n";
 			$result .= "\n";
 			
 		}
 	
 	}
 	return utf8_encode($result);		
+}
+
+function getWeatherIco($type){	
+	$icon = ""; 
+	$type = strtolower($type);
+	switch ($type) {
+		case "clear":
+			$icon = "\u2600"; 
+			break;
+		case "clouds":
+			$icon = "\u2601"; 
+			break;
+		case "rain":
+			$icon = "\uD83C\uDF27"; 
+			break;
+		case "drizzle":
+			$icon = "\uD83C\uDF27"; 
+			break;
+		case "thunderstorm":
+			$icon = "\u26C8"; 
+			break;
+		case "snow":
+			$icon = "\u2744"; 
+			break;
+		case "mist":
+			$icon = "\uD83C\uDF01"; 
+			break;
+		case "atmosphere":
+			$icon = "\uD83C\uDF01"; 
+			break;
+	}
+	return json_decode($icon);
 }
