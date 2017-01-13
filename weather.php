@@ -125,7 +125,7 @@ function getWeatherWeek(){
 			//$j_time = $datetime->format('d-m-Y');
 			
 			setLocale(LC_TIME|LC_CTYPE, 'it_IT'); 
-		    $j_time = strftime($format, $datetime->format('l d-m-Y'));
+		    $j_time = strftime("%A %d %m", $datetime->format('l d-m-Y'));
 			
 			
 			$result .= "Giorno ".$j_time." \n";
@@ -175,5 +175,6 @@ function getWeatherIco($type){
 			$icon = "\uD83C\uDF01"; 
 			break;
 	}
-	return json_decode($icon);
+	//return json_decode($icon);
+	return $icon;
 }
