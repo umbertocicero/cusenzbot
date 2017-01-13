@@ -204,7 +204,6 @@ function sendPhoto($chatId,$id) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
 	$output = curl_exec($ch);
-	
 }
 function sendSound($chat_id, $id) {
 	/*
@@ -224,7 +223,6 @@ function sendSound($chat_id, $id) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
 	$output = curl_exec($ch);
-	*/
 }
 
 function checkJSON($chatID,$update){
