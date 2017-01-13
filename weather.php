@@ -125,7 +125,7 @@ function getWeatherWeek(){
 			$datetime->setTimezone($la_time);
 			$j_time = $datetime->format('d-m-Y');
 			
-			setLocale(LC_TIME, 'ita', 'it_IT'); 
+			setlocale(LC_TIME, 'ita', 'it_IT'); 
 		    $day = strftime("%a %m-%d", $dt);
 			$result .= $day." \n";
 			
