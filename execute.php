@@ -20,7 +20,7 @@ if(!$update)
 
 $message = isset($result['message']) ? $result['message'] : "";
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
-$chatId = isset($message['chat']['id']) ? $message['chat']['id'] : "";
+$chat_id = isset($message['chat']['id']) ? $message['chat']['id'] : "";
 $firstname = isset($message['chat']['first_name']) ? $message['chat']['first_name'] : "";
 $lastname = isset($message['chat']['last_name']) ? $message['chat']['last_name'] : "";
 $username = isset($message['chat']['username']) ? $message['chat']['username'] : "";
@@ -142,7 +142,7 @@ foreach ($json_a as $k => $v) {
 							} else {
 							   $picture = $v;
 							}
-							sendPhoto($chatId,$picture);
+							sendPhoto($chat_id,$picture);
 							exit;
 						}
 					}
@@ -181,12 +181,12 @@ function sendMsg($chat_id, $text) {
 	$telegram->sendMessage($content);
 	*/
 	header("Content-Type: application/json");
-	$parameters = array('chat_id' => $chatId, "text" => $text);
+	$parameters = array('chat_id' => $chat_id, "text" => $text);
 	$parameters["method"] = "sendMessage";
 	echo json_encode($parameters);
 }
 
-function sendPhoto($chatId,$id) {
+function sendPhoto($chat_id,$id) {
 	/*
 	$telegram = new Telegram(BOT_TOKEN);
 	$chat_id = $telegram->ChatID();
@@ -197,7 +197,7 @@ function sendPhoto($chatId,$id) {
 	
 	$api = "sendPhoto";
 	$url = "https://api.telegram.org/bot" . BOT_TOKEN . "/" . $api;
-	$postFields = array('chat_id' => $chatId, 'photo' => new CURLFile(realpath("images/".$id)););
+	$postFields = array('chat_id' => $chat_id, 'photo' => new CURLFile(realpath("images/".$id)););
 	$ch = curl_init(); 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: multipart/form-data"));
 	curl_setopt($ch, CURLOPT_URL, $url); 
@@ -216,7 +216,7 @@ function sendSound($chat_id, $id) {
 	
 	$api = "sendAudio";
 	$url = 'https://api.telegram.org/bot' . BOT_TOKEN . '/' . $api;
-	$postFields = array('chat_id' => $chatId, 'audio' => new CURLFile(realpath("sound/".$id)););
+	$postFields = array('chat_id' => $chat_id, 'audio' => new CURLFile(realpath("sound/".$id)););
 	$ch = curl_init(); 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: multipart/form-data"));
 	curl_setopt($ch, CURLOPT_URL, $url); 
@@ -225,11 +225,11 @@ function sendSound($chat_id, $id) {
 	$output = curl_exec($ch);
 }
 
-function checkJSON($chatID,$update){
+function checkJSON($chat_id,$update){
 	$myFile = "log.txt";
 	$updateArray = print_r($update,TRUE);
 	$fh = fopen($myFile, 'a') or die("can't open file");
-	fwrite($fh, $chatID ."\n\n");
+	fwrite($fh, $chat_id ."\n\n");
 	fwrite($fh, $updateArray."\n\n");
 	fclose($fh);
 }
