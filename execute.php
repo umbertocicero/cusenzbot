@@ -138,7 +138,7 @@ foreach ($json_a as $k => $v) {
 							} else {
 							   $picture = $v;
 							}
-							sendPhoto($picture);
+							sendPhoto($chatId,$picture);
 							exit;
 						}
 					}
@@ -176,9 +176,9 @@ function sendMsg($text) {
 	$telegram->sendMessage($content);
 }
 
-function sendPhoto($id) {
-	$telegram = new Telegram(BOT_TOKEN);
-	$chat_id = $telegram->ChatID();
+function sendPhoto($chatId,$id) {
+	//$telegram = new Telegram(BOT_TOKEN);
+	//$chat_id = $telegram->ChatID();
 	$photo = new CURLFile(realpath("images/".$id));
 	//$content = array('chat_id' => $chat_id, 'photo' => $photo);
 	//$telegram->sendPhoto($content);
