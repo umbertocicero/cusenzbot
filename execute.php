@@ -86,6 +86,7 @@ switch ($firstText) {
         break;
 	case "/audio":
 		$resultText  = "1. Zabatta | Solfami \n";
+		$resultText  = "2. Vip | Ciuati \n";
 		sendMsg($chat_id, $resultText);
         break;
 	case "/meteo_oggi":
