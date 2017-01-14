@@ -151,6 +151,7 @@ foreach ($json_a as $k => $v) {
 					}
 					exit;
 				case "@zabatta":
+				case "@vip":
 					$sound_a = json_decode(file_get_contents(realpath("sound.json")), true);
 					foreach ($sound_a as $k => $v) {	
 						if($resultText==$k){
