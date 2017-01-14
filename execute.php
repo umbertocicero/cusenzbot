@@ -151,6 +151,12 @@ foreach ($json_a as $k => $v) {
 					}
 					exit;
 				case "@zabatta":
+					searchSound($chat_id, $resultText);
+					exit;
+				case "@vip":
+					searchSound($chat_id, $resultText);
+					exit;
+					/*
 				case "@vip":
 					$sound_a = json_decode(file_get_contents(realpath("sound.json")), true);
 					foreach ($sound_a as $k => $v) {	
@@ -166,6 +172,7 @@ foreach ($json_a as $k => $v) {
 						}
 					}
 					exit;
+					*/
 			}
 			
 			$resultText = str_replace("%s", $secondText, $resultText);
@@ -211,6 +218,21 @@ function sendPhoto($chat_id, $id) {
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
 	$output = curl_exec($ch);
 	*/
+}
+function searchSound($chat_id, $text) {
+	$sound_a = json_decode(file_get_contents(realpath("sound.json")), true);
+	foreach ($sound_a as $k => $v) {	
+		if($text==$k){
+			if(is_array($v)) {
+			   $random = rand(0, count($v)-1);
+			   $sound = $v[$random]; 
+			} else {
+			   $sound = $v;
+			}
+			sendSound($chat_id, $sound);
+			exit;
+		}
+	}
 }
 
 function sendSound($chat_id, $id) {
