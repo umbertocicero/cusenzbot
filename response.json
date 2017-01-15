@@ -7,7 +7,8 @@
 "Tuttappò?",
 "E me a iddru!",
 "Ohi Cò",
-"Ti saluto pede i ficu."
+"Ti saluto pede i ficu.",
+"Saluta Andonio"
 ],
 "cusenzbot":[
 "Dicia!",
@@ -18,7 +19,8 @@
 "Ohi Cò",
 "Ohi Zi",
 "Atru ca cazzi",
-"Ca pu passu cchiù tardu."
+"Ca pu passu cchiù tardu.",
+"A vrt'!"
 ],
 "buongiorno/bongiorno/bongiornu":[
 "Bongiornu a tia!",
@@ -51,17 +53,21 @@
 "%s s'è minatu e c'hanno strazzatu u Belstaff!",
 "%s, U puarcu abbuttu nun crida aru diunu",
 "Quannu u ciucciu acqua unni vò....avoglia ca fischi.",
-"A cavallu jistimato li lucia ru pilu.",
-"%s tiani a capu è cumu nu vilu i cipuddra",
+"%s tena a capu cumu nu vilu i cipuddra",
 "Gisu Cristu duna pane a chini 'un tena i dìanti",
-"%s vida ca ara squagliata d 'a nivi si vidano i strunzi",
+"%s, vida ca ara squagliata d 'a nivi si vidano i strunzi",
 "%s, duminica un ci mangiu add'è mammata, ca l'ultima vota m'avìanu ricoveratu aru Marianu Santu.",
 "%s fa turdiddri cu mele Ambrosoli",
 "%s si nu catanzarise",
 "%s un sa ne leja e ne scriva",
 "%s un sa addu'è a Sagliuta i pagliaro",
 "%s si sgangatu cumu Totonno u Squalo",
-"%s si chiù bruttu i 100 lire"
+"%s si chiù bruttu i 100 lire",
+"%s, a gaddrina fa l'uavu e aru graddru 'lli vruscia ru culu?",
+"%s va coglia riganu ara sagliuta i Paola",
+"%s tena cchiù corna ca nu panaru i lumachi",
+"%s è nu piritaru, e dicia ch'è ra tussa",
+"%s è carutu du passegginu quann'era picciriddru"
 ],
 "minaccia/mina":[
 "%s ti fazz' a faccia tanta",
@@ -69,12 +75,18 @@
 "%s, a canusci a gente?",
 "%s ti fazzu nu paliatune",
 "%s ti scattu sutta i pedi",
-"%s gaddrina fa l'uavu e aru graddru 'lli vruscia ru culu?",
 "%s, ara squagliata d 'a nivi si vidano i strunzi",
 "U suviarchiu rumpa ru cuviarchiu",
 "%s ca pu passu cchiù tardu.",
 "%s ni trovamu avanti un Gran Sole",
-"%s, ti fazzu muzzicà i Totonno u Squalo"
+"%s, ti fazzu muzzicà i Totonno u Squalo",
+"%s va coglia riganu ara scisa i Paola",
+"Si vidi %s e nu lupu, ammazza prima %s e dopu u lupu.",
+"Tantu vula lu citrulu ca va 'nculu a %s",
+"Chianu mierulu c'a via è pitrusa.",
+"Mina %s mò ch'è carn'i puarcu.",
+"U gabbu coglia e ra jestima no",
+"Ccamifaaaaaaa!"
 ],
 "proverbio/proverbi/nonno":[
 "Chianu mierulu c'a via è pitrusa.",
@@ -150,5 +162,5 @@
 "meteo_settimana/meteo-settimana/meteosettimana":"@weatherWeek",
 "foto/fotu/immagine/cusenza/cosenza":"@photo",
 "zabatta/zabbatta/solfami/solfamì":"@zabatta",
-"vip/vips/gigliotti/piume/kekko/ciuati/famosi/famoso":"@vip"
+"vip/vips/gigliotti/piume/kekko/ciuati/ciuatu/famosi/famoso":"@vip"
 }
