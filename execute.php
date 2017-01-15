@@ -120,7 +120,7 @@ foreach ($json_a as $k => $v) {
 		if($value == $firstText){
 			
 			if(is_array($v)) {
-			   $random = rand(0, count($v)-1);
+			   $random = mt_rand(0, count($v)-1);
 			   $t = $v[$random]; 
 			} else {
 			   $t = $v;
@@ -140,7 +140,7 @@ foreach ($json_a as $k => $v) {
 					foreach ($pictures_a as $k => $v) {	
 						if($resultText==$k){
 							if(is_array($v)) {
-							   $random = rand(0, count($v)-1);
+							   $random = mt_rand(0, count($v)-1);
 							   $picture = $v[$random]; 
 							} else {
 							   $picture = $v;
@@ -162,7 +162,7 @@ foreach ($json_a as $k => $v) {
 					foreach ($sound_a as $k => $v) {	
 						if($resultText==$k){
 							if(is_array($v)) {
-							   $random = rand(0, count($v)-1);
+							   $random = mt_rand(0, count($v)-1);
 							   $sound = $v[$random]; 
 							} else {
 							   $sound = $v;
@@ -224,7 +224,7 @@ function searchSound($chat_id, $text) {
 	foreach ($sound_a as $k => $v) {	
 		if($text==$k){
 			if(is_array($v)) {
-			   $random = rand(0, count($v)-1);
+			   $random = mt_rand(0, count($v)-1);
 			   $sound = $v[$random]; 
 			} else {
 			   $sound = $v;
