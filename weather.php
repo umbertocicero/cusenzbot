@@ -171,8 +171,11 @@ function getWeatherIco($type){
 		case "mist":
 			$icon = '"\uD83C\uDF01"'; 
 			break;
+		case "fog":
+			$icon = '"\uD83C\uDF2B"'; 
+			break;
 		case "atmosphere":
-			$icon = '"\uD83C\uDF01"'; 
+			$icon = '"\uD83C\uDF2B"'; 
 			break;
 		case "fog":
 			$icon = '"\uD83C\uDF01"'; 

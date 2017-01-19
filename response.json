@@ -1,12 +1,14 @@
 {
 "autore":"Coded with \u2764 by Umberto Cicero",
-"ciao/ciau":[
+"ciao/ciau/saluta":[
 "Cumé!",
 "Cià champà",
 "Compari mì",
 "Tuttappò?",
 "E me a iddru!",
-"Ohi Cò"
+"Ohi Cò",
+"Ti saluto pede i ficu.",
+"Saluta Andonio"
 ],
 "cusenzbot":[
 "Dicia!",
@@ -15,14 +17,17 @@
 "M'ha chiamatu?",
 "Oh",
 "Ohi Cò",
-"Ohi Zi"
+"Ohi Zi",
+"Atru ca cazzi",
+"Ca pu passu cchiù tardu.",
+"A vrt'!"
 ],
 "buongiorno/bongiorno/bongiornu":[
 "Bongiornu a tia!",
 "E me a iddru! Buongiorno",
 "Buongiorno",
 "Si azatu mo?",
-"Alla bon'ura"
+"Ara bon'ura"
 ],
 "buonanotte/notte/bonanotte":[
 "Bonanotte a tia!",
@@ -45,14 +50,43 @@
 "insulta/jestima":[
 "Chi minchia %s",
 "I bafanc\u00FA %s",
-"%s s'è minatu e c'hanno strazzatu u Belstaff!"
+"%s s'è minatu e c'hanno strazzatu u Belstaff!",
+"%s, U puarcu abbuttu nun crida aru diunu",
+"Quannu u ciucciu acqua unni vò....avoglia ca fischi.",
+"%s tena a capu cumu nu vilu i cipuddra",
+"Gisu Cristu duna pane a chini 'un tena i dìanti",
+"%s, vida ca ara squagliata d 'a nivi si vidano i strunzi",
+"%s, duminica un ci mangiu add'è mammata, ca l'ultima vota m'avìanu ricoveratu aru Marianu Santu.",
+"%s fa turdiddri cu mele Ambrosoli",
+"%s si nu catanzarise",
+"%s un sa ne leja e ne scriva",
+"%s un sa addu'è a Sagliuta i pagliaro",
+"%s si sgangatu cumu Totonno u Squalo",
+"%s si chiù bruttu i 100 lire",
+"%s, a gaddrina fa l'uavu e aru graddru 'lli vruscia ru culu?",
+"%s va coglia riganu ara sagliuta i Paola",
+"%s tena cchiù corna ca nu panaru i lumachi",
+"%s è nu piritaru, e dicia ch'è ra tussa",
+"%s è carutu du passegginu quann'era picciriddru"
 ],
 "minaccia/mina":[
 "%s ti fazz' a faccia tanta",
 "%s mi sta guardannu stuartu?",
 "%s, a canusci a gente?",
 "%s ti fazzu nu paliatune",
-"%s ti scattu sutta i pedi"
+"%s ti scattu sutta i pedi",
+"%s, ara squagliata d 'a nivi si vidano i strunzi",
+"U suviarchiu rumpa ru cuviarchiu",
+"%s ca pu passu cchiù tardu.",
+"%s ni trovamu avanti un Gran Sole",
+"%s, ti fazzu muzzicà i Totonno u Squalo",
+"%s va coglia riganu ara scisa i Paola",
+"Si vidi %s e nu lupu, ammazza prima %s e dopu u lupu.",
+"Tantu vula lu citrulu ca va 'nculu a %s",
+"Chianu mierulu c'a via è pitrusa.",
+"Mina %s mò ch'è carn'i puarcu.",
+"U gabbu coglia e ra jestima no",
+"Ccamifaaaaaaa!"
 ],
 "proverbio/proverbi/nonno":[
 "Chianu mierulu c'a via è pitrusa.",
@@ -84,12 +118,49 @@
 "Cumpra caru ca sta 'mapru",
 "Quann'allampa all'Amantìa pigl'azappa e bà fatija!",
 "U chiuritu dù culu è chiù forti du tirrimutu",
-"Quann'è tiampu i caristia ogni bucu è galleria"
+"Quann'è tiampu i caristia ogni bucu è galleria",
+"A merda chiù a riminii e chiù puzza",
+"'A scusa d'u piritaru è ra tussa.",
+"Gent'ì puartu statti accuartu",
+"U pisce puzza da capu",
+"Miegliu curnutu ca' mala asuliatu.",
+"U gabbu coglia e ra jestima no",
+"Ti saluto pede i ficu.",
+"Chi stà speranza all'atri e nun cucina, a sira si ricoglia murmuriannu.",
+"Addu vidi grupi...'ntippa",
+"U puarcu abbuttu nun crida aru diunu",
+"I ciucci se 'ntruzzanu e i varrili se rumpanu",
+"Chine vo và, chine un vo manna.",
+"Addi trona unn'allampa",
+"Addi c'è panza c'è crianza",
+"Gesù Cristu cu na manu ti mmutta e cu l'atra ti tena",
+"ara cannilora quantu sule spanna tanta nive 'mpanna",
+"Quannu u ciucciu acqua unni vò....avoglia ca fischi.",
+"A cavallu jistimato li lucia ru pilu.",
+"A capu è cumu nu vilu i cipuddra",
+"A cani Viacchiu viani fà cucci cucci?",
+"Cose in comuni...jettale aru jume",
+"Cchiu picca simu, megliu iamu.",
+"Chi ne tena cumpagni tena patruni",
+"Petra ca s'arruozzula un fa lippu",
+"A gaddrina fa l'uavu e aru graddru 'lli vruscia ru culu",
+"A fimmina sanizza dopu mangiatu aggrizza",
+"Azati culu e serbati patruni",
+"Lavuru i notte vrigogna i juarnu",
+"'A fimmina è cumu a zanga:s'è tosta a zampi,s'è moddra c'affracchi!!!",
+"'A cira si squaglia e ra processione un camina",
+"Uacchi viriviriddri e mani sutti'i titiddri",
+"Simu nati grupati pè nù mora scattati",
+"Gisu Cristu duna pane a chini 'un tena i dìanti",
+"Attacca u ciucciu addui dicia u patruni",
+"U suviarchiu rumpa ru cuviarchiu"
 ],
 "poesia/poesie/cusentinu":[
 "U Cusintinu \n\n U Cusentinu è nu cristianu stranu \n tena ra vucca granne eppuru parra chianu \n Dicia ri parole stritte dintr' i dienti \n si fida cchiù di strajni ca di parianti \n Si senta nu Rodolfu i numi Valentinu \n eppuru è assaj paisanu e pocu cittadinu. \n Si minta ra cravatta, aropera ru picu \n Ancora va trovannu u tesoro i Re Alaricu \n U juarnu va a ra scola a sira a Piazza Scura \n si jura sup'a mamma e ti duna ra fricatura. \n Si senta superiore ppi via i l'antichi avi \n Eppuru n' hannu scrittu ca sunnu muntanari. \n Però unn è correttu a nni parrà sgarbatu \n Picchi sù gent'i core e l'hannu dimostratu, \n È vero ca s'atteggia a dottu e malandrinu \n Però chi bella cosa...ad essa cusintinu!"
 ],
 "meteo_oggi/meteo/meteu/tiampu/jazza/nivica/chiova/tiampu":"@weatherToday",
 "meteo_settimana/meteo-settimana/meteosettimana":"@weatherWeek",
-"foto/fotu/immagine/cusenza/cosenza":"@photo"
+"foto/fotu/immagine/cusenza/cosenza":"@photo",
+"zabatta/zabbatta/solfami/solfamì":"@zabatta",
+"vip/vips/gigliotti/piume/kekko/ciuati/ciuatu/famosi/famoso/andonio":"@vip"
 }
