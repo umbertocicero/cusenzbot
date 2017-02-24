@@ -45,7 +45,7 @@ $firstText = trim($firstText);
 
 switch ($firstText) {
     case "/start":
-        $resultText = "Ciao sono CusenzBot!\n\n";
+        $resultText  = "Ciao sono CusenzBot!\n\n";
 		$resultText .= "Questo bot é perfetto per tutti i cosentini (e provincia). \n";
 		$resultText .= "Ideale per dare un po di vita al vostro gruppo si amici su Telegram\n\n";
 		$resultText .= "Lista comandi per ogni categoria:\n";
@@ -75,7 +75,7 @@ switch ($firstText) {
         break;
 	case "/audio":
 		$resultText  = "1. Zabatta | Solfami \n";
-		$resultText  = "2. Vip | Ciuati \n";
+		$resultText .= "2. Vip | Ciuati \n";
 		sendMsg($chat_id, $resultText);
         break;
 	case "/meteo_oggi":
