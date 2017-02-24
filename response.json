@@ -8,7 +8,8 @@
 "E me a iddru!",
 "Ohi Cò",
 "Ti saluto pede i ficu.",
-"Saluta Andonio"
+"Saluta Andonio",
+"Ohi Fra"
 ],
 "cusenzbot":[
 "Dicia!",
@@ -20,7 +21,8 @@
 "Ohi Zi",
 "Atru ca cazzi",
 "Ca pu passu cchiù tardu.",
-"A vrt'!"
+"A vrt'!",
+"Ohi Fra"
 ],
 "buongiorno/bongiorno/bongiornu":[
 "Bongiornu a tia!",
@@ -51,7 +53,7 @@
 "Chi minchia %s",
 "I bafanc\u00FA %s",
 "%s s'è minatu e c'hanno strazzatu u Belstaff!",
-"%s, U puarcu abbuttu nun crida aru diunu",
+"%s è cumu nu puarcu abbuttu! Nun crida aru diunu",
 "Quannu u ciucciu acqua unni vò....avoglia ca fischi.",
 "%s tena a capu cumu nu vilu i cipuddra",
 "Gisu Cristu duna pane a chini 'un tena i dìanti",
@@ -67,7 +69,12 @@
 "%s va coglia riganu ara sagliuta i Paola",
 "%s tena cchiù corna ca nu panaru i lumachi",
 "%s è nu piritaru, e dicia ch'è ra tussa",
-"%s è carutu du passegginu quann'era picciriddru"
+"%s è carutu du passegginu quann'era picciriddru",
+"%s vati fa na menz' ura i vrigogna",
+"%s si ti dugnu n'euru mu va cumbri nu pacchett'i vafanculu a mammata? E 'u riestu tenatillu",
+"%s vati fa na zuppa i latte",
+"%s 'Mparati spiartu, ca fissa cci si già",
+"%s vati stipa"
 ],
 "minaccia/mina":[
 "%s ti fazz' a faccia tanta",
@@ -76,7 +83,6 @@
 "%s ti fazzu nu paliatune",
 "%s ti scattu sutta i pedi",
 "%s, ara squagliata d 'a nivi si vidano i strunzi",
-"U suviarchiu rumpa ru cuviarchiu",
 "%s ca pu passu cchiù tardu.",
 "%s ni trovamu avanti un Gran Sole",
 "%s, ti fazzu muzzicà i Totonno u Squalo",
@@ -85,8 +91,15 @@
 "Tantu vula lu citrulu ca va 'nculu a %s",
 "Chianu mierulu c'a via è pitrusa.",
 "Mina %s mò ch'è carn'i puarcu.",
+"%s, un ti fa u splendidu",
 "U gabbu coglia e ra jestima no",
-"Ccamifaaaaaaa!"
+"Ccamifaaaaaaa!",
+"%s viani ccà si tiani ficatu",
+"%s, u sà cchi ti dicu? ti si permessu mo..un ti permettta cchiù",
+"Ohi %s! Fly down! Vula vasciu!!",
+"%s cuntati l'ossa, picchì mo t'è mmiscu!",
+"%s, ti sta pigliannu troppa cunfidenza!",
+"%s cumportati bellu bellu sinno' ti pigliu a shcaffettuni dintr'u mussu"
 ],
 "proverbio/proverbi/nonno":[
 "Chianu mierulu c'a via è pitrusa.",
