@@ -8,4 +8,4 @@ lista comandi per ogni categoria:
 - /foto
 - /meteo
 
-##### Ideale per dare un po di vita al vostro gruppo si amici su Telegram
+#### Ideale per dare un po di vita al vostro gruppo di amici su Telegram
