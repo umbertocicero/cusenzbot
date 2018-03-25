@@ -1,5 +1,5 @@
 # @CusenzBot
-#### Ho cretato questo Bot per Telegram, in onore alla mia città.
+#### Ho cretato questo Bot per Telegram, in onore alla mia città ❤ Cosenza ❤.
 
 Questo bot é perfetto per tutti i cosentini (e non solo)
 
